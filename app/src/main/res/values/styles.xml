@@ -7,5 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="NewsItem1Theme" >
+        <item name="android:layout_height">120dp</item>
+
+    </style>
 
 </resources>
