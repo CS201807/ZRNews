@@ -11,5 +11,9 @@
         <item name="android:layout_height">120dp</item>
 
     </style>
-
+    <style name="bottomText" >
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/selector_bottom_textcolor</item>
+    </style>
 </resources>

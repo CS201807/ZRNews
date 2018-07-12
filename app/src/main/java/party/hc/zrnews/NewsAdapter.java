@@ -6,7 +6,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import party.hc.zrnews.bean.NewsBean;
 
@@ -20,12 +22,10 @@ public class NewsAdapter extends BaseAdapter {
     public NewsAdapter(Context context, List<NewsBean> data) {
         this.context = context;
         this.data = data;
+        map=new HashMap<>();
     }
-
+    private Map<Integer,Boolean> map;
     private List<NewsBean> data;
-    public NewsAdapter(Context context) {
-        this.context = context;
-    }
 
     @Override
     public int getCount() {
