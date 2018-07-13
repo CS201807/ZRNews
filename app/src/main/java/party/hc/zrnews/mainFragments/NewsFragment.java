@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
@@ -31,19 +32,20 @@ public class NewsFragment extends BFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = View.inflate(getContext(), R.layout.page_news,null);
-        FrameLayout flContent = (FrameLayout) view.findViewById(R.id.fl_content);
-        TextView tv = new TextView(getContext());
         ViewPager pager = (ViewPager)view.findViewById(R.id.pager);
 
         List<NewsBFragment> newsBFragments=new ArrayList<>();
-        newsBFragments.add(new NewsGeneralFragment("推荐"));
-        pager.setAdapter(new NewsFragmentAdapter(getFragmentManager(),newsBFragments));
+        for(int i=0;i<CONTENT_TITLES.length;i++){
+            newsBFragments.add(new NewsGeneralFragment(CONTENT_TITLES[i]));
+        }
+
+        pager.setAdapter(new NewsFragmentAdapter(getChildFragmentManager(),newsBFragments));
 
 
 //Bind the title indicator to the adapter
-        TitlePageIndicator titleIndicator = (TitlePageIndicator)view.findViewById(R.id.indicator);
-        titleIndicator.setTextColor(Color.GRAY);
-        titleIndicator.setSelectedColor(Color.RED);
+        TabPageIndicator titleIndicator = (TabPageIndicator)view.findViewById(R.id.indicator);
+//        titleIndicator.setTextColor(Color.GRAY);
+//        titleIndicator.setSelectedColor(Color.RED);
         titleIndicator.setViewPager(pager);
 
         titleIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -1,7 +1,10 @@
 package party.hc.zrnews.mainFragments.NewsPageFragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,8 @@ import party.hc.zrnews.bean.NewsBean;
 public class NewsGeneralFragment extends NewsBFragment {
     private String title;
     private ArrayList<NewsBean> newsList;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private NewsAdapter myAdapter;
     public NewsGeneralFragment(String title) {
         this.title = title;
     }
@@ -35,11 +40,24 @@ public class NewsGeneralFragment extends NewsBFragment {
         initData();
         //listview
         ListView listView=(ListView) view.findViewById(R.id.listView1);
-        listView.setAdapter(new NewsAdapter(getContext(),newsList));
+        myAdapter=new NewsAdapter(getContext(),newsList);
+        listView.setAdapter(myAdapter);
+        swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.main_srl);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new LoadDataThread().start();
+            }
+        });
+
         return view;
         //       return super.onCreateView(inflater, container, savedInstanceState);
 
     }
+
+    /**
+     * 初始化数据
+     */
     private void  initData(){
         for(int i=0;i<100;i++){
 
@@ -47,4 +65,42 @@ public class NewsGeneralFragment extends NewsBFragment {
         }
 
     }
+    /**
+     * 加载数据的线程
+     */
+    class LoadDataThread extends  Thread{
+        @Override
+        public void run() {
+            initData();
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            handler.sendEmptyMessage(0x101);//通过handler发送一个更新数据的标记
+        }
+
+        private void initData() {
+            newsList.add(new NewsBean("不好！"));
+        }
+    }
+
+    /**
+     * 处理消息
+     */
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 0x101:
+                    if (swipeRefreshLayout.isRefreshing()){
+                        myAdapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setRefreshing(false);//设置不刷新
+                    }
+                    break;
+            }
+        }
+    };
+
 }
