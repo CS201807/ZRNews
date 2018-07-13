@@ -13,9 +13,12 @@ import android.widget.TextView;
 import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import party.hc.zrnews.R;
-import party.hc.zrnews.SimpleAdapter;
+import party.hc.zrnews.mainFragments.NewsPageFragments.NewsBFragment;
+import party.hc.zrnews.mainFragments.NewsPageFragments.NewsFragmentAdapter;
+import party.hc.zrnews.mainFragments.NewsPageFragments.NewsGeneralFragment;
 
 /**
  * Created by ubuntu on 18-7-12.
@@ -31,18 +34,10 @@ public class NewsFragment extends BFragment {
         FrameLayout flContent = (FrameLayout) view.findViewById(R.id.fl_content);
         TextView tv = new TextView(getContext());
         ViewPager pager = (ViewPager)view.findViewById(R.id.pager);
-        ArrayList<View> newsList;
-        newsList=new ArrayList<>();
-        TextView view1= new TextView(getContext());
-        view1.setText("nihao!");
-        newsList.add(view1);
-        TextView view2= new TextView(getContext());
-        view2.setText("buhao!");
-        newsList.add(view2);
-        TextView view3= new TextView(getContext());
-        view3.setText("buhao!");
-        newsList.add(view3);
-        pager.setAdapter(new SimpleAdapter(newsList));
+
+        List<NewsBFragment> newsBFragments=new ArrayList<>();
+        newsBFragments.add(new NewsGeneralFragment("推荐"));
+        pager.setAdapter(new NewsFragmentAdapter(getFragmentManager(),newsBFragments));
 
 
 //Bind the title indicator to the adapter

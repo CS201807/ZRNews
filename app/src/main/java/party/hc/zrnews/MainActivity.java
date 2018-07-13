@@ -22,26 +22,15 @@ import party.hc.zrnews.mainFragments.BFragment;
 import party.hc.zrnews.mainFragments.MainFragmentAdapter;
 import party.hc.zrnews.mainFragments.NewsFragment;
 import party.hc.zrnews.mainFragments.firstFragment;
-import party.hc.zrnews.pagers.BasePager;
-import party.hc.zrnews.pagers.HotPager;
-import party.hc.zrnews.pagers.LivePager;
-import party.hc.zrnews.pagers.MePager;
-import party.hc.zrnews.pagers.NewsPager;
-import party.hc.zrnews.pagers.VideoPager;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<NewsBean> newsList;
     //List<BasePager> list;
     List<BFragment> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //listview
-        ListView listView=(ListView) findViewById(R.id.listView1);
-         newsList=new ArrayList<>();
-        initData();
-        listView.setAdapter(new NewsAdapter(this,newsList));
+
         //main viewPager
         final ViewPager viewPager=(ViewPager) findViewById(R.id.viewPager1);
 
@@ -87,24 +76,12 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setData() {
         list=new ArrayList<>();
-        list.add(new firstFragment());
         list.add(new NewsFragment());
         list.add(new firstFragment());
         list.add(new firstFragment());
-//        list = new ArrayList<>();
-//        list.add(new NewsPager(MainActivity.this));
-//        list.add(new VideoPager(MainActivity.this));
-//        list.add(new HotPager(MainActivity.this));
-//        list.add(new LivePager(MainActivity.this));
-//        list.add(new MePager(MainActivity.this));
+        list.add(new firstFragment());
     }
 
-    private void  initData(){
-        for(int i=0;i<100;i++){
 
-            newsList.add(new NewsBean("nihao"+i));
-        }
-
-    }
 
 }

@@ -1,4 +1,4 @@
-package party.hc.zrnews;
+package party.hc.zrnews.mainFragments.NewsPageFragments;
 
 import android.content.Context;
 import android.view.View;
@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import party.hc.zrnews.R;
 import party.hc.zrnews.bean.NewsBean;
 
 /**
@@ -46,7 +47,7 @@ public class NewsAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
         if(view==null){
-            view=View.inflate(context,R.layout.new_item,null);
+            view=View.inflate(context, R.layout.new_item,null);
             holder=new ViewHolder();
             holder.tvName=(TextView)view.findViewById(R.id.textView2);
             view.setTag(holder);
