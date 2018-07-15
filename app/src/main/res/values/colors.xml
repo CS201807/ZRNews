@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorButtomBase">#7c7878</color>
     <color name="colorButtomSelected">#df3838</color>
+    <color name="colorIndicatorTextSelected">#df3838</color>
+    <color name="colorIndicatorTextBase">#9c9b9b</color>
+    <color name="white">#ffffff</color>
 </resources>

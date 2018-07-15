@@ -1,17 +1,13 @@
 package party.hc.zrnews.mainFragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.viewpagerindicator.TabPageIndicator;
-import com.viewpagerindicator.TitlePageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,28 +16,31 @@ import party.hc.zrnews.R;
 import party.hc.zrnews.mainFragments.NewsPageFragments.NewsBFragment;
 import party.hc.zrnews.mainFragments.NewsPageFragments.NewsFragmentAdapter;
 import party.hc.zrnews.mainFragments.NewsPageFragments.NewsGeneralFragment;
+import party.hc.zrnews.mainFragments.VideosPageFragments.VideosBFragment;
+import party.hc.zrnews.mainFragments.VideosPageFragments.VideosFragmentAdapter;
+import party.hc.zrnews.mainFragments.VideosPageFragments.VideosGeneralFragment;
 
 /**
- * Created by ubuntu on 18-7-12.
+ * Created by ubuntu on 18-7-15.
  */
 
-public class NewsFragment extends BFragment {
+public class VideosFragment extends BFragment {
     private static final String[] CONTENT_TITLES = new String[]{"推荐", "热点", "当地", "视频", "社会", "图片", "娱乐", "问答", "科技", "汽车", "财经",};
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = View.inflate(getContext(), R.layout.page_news,null);
+        View view = View.inflate(getContext(), R.layout.page_videos,null);
         ViewPager pager = (ViewPager)view.findViewById(R.id.pager);
 
-        List<NewsBFragment> newsBFragments=new ArrayList<>();
+        List<VideosBFragment> newsBFragments=new ArrayList<>();
         for(int i=0;i<CONTENT_TITLES.length;i++){
-            NewsGeneralFragment newsGeneralFragment = new NewsGeneralFragment();
-            newsGeneralFragment.setTitle(CONTENT_TITLES[i]);
-            newsBFragments.add(newsGeneralFragment);
+            VideosGeneralFragment videosGeneralFragment = new VideosGeneralFragment();
+            videosGeneralFragment.setTitle(CONTENT_TITLES[i]);
+            newsBFragments.add(videosGeneralFragment);
         }
 
-        pager.setAdapter(new NewsFragmentAdapter(getChildFragmentManager(),newsBFragments));
+        pager.setAdapter(new VideosFragmentAdapter(getChildFragmentManager(),newsBFragments));
 
 
 //Bind the title indicator to the adapter
