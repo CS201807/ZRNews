@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">最热新闻</string>
+    <string name="title">标题</string>
 </resources>
+

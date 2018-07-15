@@ -10,23 +10,19 @@ import com.bumptech.glide.Glide;
 import party.hc.zrnews.R;
 
 public class Conponent_Style2 extends RelativeLayout {
-    private TextView CS2_textview;
-    private ImageView CS2_pic1;
-    private ImageView CS2_pic2;
-    private ImageView CS2_pic3;
 
     public Conponent_Style2(Context context, AttributeSet attrs, String title, String pic1,String pic2, String pic3) {
 
         super(context, attrs);
 
         // 加载布局
-        LayoutInflater.from(context).inflate(R.layout.Conponent_Style2, this);
+        LayoutInflater.from(context).inflate(R.layout.conponent_style2, this);
 
         // 获取控件
-        CS2_textview=findViewById(R.id.CS2_title);
-        CS2_pic1=findViewById(R.id.CS2_pic1);
-        CS2_pic2=findViewById(R.id.CS2_pic2);
-        CS2_pic3=findViewById(R.id.CS2_pic3);
+        TextView CS2_textview = findViewById(R.id.CS2_title);
+        ImageView CS2_pic1 = findViewById(R.id.CS2_pic1);
+        ImageView CS2_pic2 = findViewById(R.id.CS2_pic2);
+        ImageView CS2_pic3 = findViewById(R.id.CS2_pic3);
 
         CS2_textview.setText(title);
 

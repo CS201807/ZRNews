@@ -10,19 +10,16 @@ import party.hc.zrnews.R;
 
 public class Conponent_Style3 extends RelativeLayout{
 
-    private TextView CS3_textview;
-    private ImageView CS3_pic;
-
     public Conponent_Style3(Context context, AttributeSet attrs, String title, String pic1) {
 
         super(context, attrs);
 
         // 加载布局
-        LayoutInflater.from(context).inflate(R.layout.Conponent_Style3, this);
+        LayoutInflater.from(context).inflate(R.layout.conponent_style3, this);
 
         // 获取控件
-        CS3_textview = findViewById(R.id.CS3_title);
-        CS3_pic = findViewById(R.id.CS3_pic);
+        TextView CS3_textview = findViewById(R.id.CS3_title);
+        ImageView CS3_pic = findViewById(R.id.CS3_pic);
 
         CS3_textview.setText(title);
 
