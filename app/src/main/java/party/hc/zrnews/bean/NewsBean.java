@@ -88,3 +88,5 @@ public class NewsBean {
         this.thumbnail2 = thumbnail2;
     }
 }
+
+

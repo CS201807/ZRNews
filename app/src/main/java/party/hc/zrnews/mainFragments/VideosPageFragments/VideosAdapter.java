@@ -48,9 +48,9 @@ public class VideosAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         VideosAdapter.ViewHolder holder;
         if(view==null){
-            view=View.inflate(context, R.layout.new_item,null);
+            view=View.inflate(context, R.layout.conponent_style4,null);
             holder=new VideosAdapter.ViewHolder();
-            holder.tvName=(TextView)view.findViewById(R.id.textView2);
+            holder.tvName=(TextView)view.findViewById(R.id.CS4_title);
             view.setTag(holder);
         }
         View v=view;
