@@ -28,7 +28,7 @@ import party.hc.zrnews.mainFragments.VideosFragment;
 import party.hc.zrnews.mainFragments.firstFragment;
 
 public class MainActivity extends AppCompatActivity {
-    //List<BasePager> list;
+     //List<BasePager> list;
     List<BFragment> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
