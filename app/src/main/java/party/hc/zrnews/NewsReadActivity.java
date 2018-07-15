@@ -29,10 +29,6 @@ public class NewsReadActivity extends AppCompatActivity  {
         //webSettings.setJavaScriptEnabled(true);//设置能够解析Javascript
         webSettings.setDomStorageEnabled(true);//设置适应Html5 //重点是这个设置
         webView.loadUrl(url);
-
-
-
-
     }
 
     @Override

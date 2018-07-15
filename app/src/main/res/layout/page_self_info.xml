@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#0000ff"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="#0000ff"
+                android:drawableStart="@drawable/back"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:background="@drawable/button_edge"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:text="编辑资料"
+                android:textSize="10dp"
+                android:textColor="#0000ff"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:text="name"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <Button
+                android:background="#ffffff"
+                android:textSize="10dp"
+                android:text="0 关注"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:textColor="#ff00ff"/>
+            <Button
+                android:background="#ffffff"
+                android:textSize="10dp"
+                android:text="0 粉丝"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:textColor="#ff9999"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:drawableBottom="@drawable/bottom_line"
+                android:textColor="#ff0000"
+                android:layout_marginLeft="10dp"
+                android:text="动态"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                />
+        </LinearLayout>
+        <ListView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        </ListView>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/head"
+        android:name="party.hc.zrnews.UI.HeadFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/head_shot" />
+</FrameLayout>

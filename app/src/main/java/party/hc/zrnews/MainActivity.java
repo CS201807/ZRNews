@@ -24,6 +24,7 @@ import party.hc.zrnews.bean.NewsBean;
 import party.hc.zrnews.mainFragments.BFragment;
 import party.hc.zrnews.mainFragments.MainFragmentAdapter;
 import party.hc.zrnews.mainFragments.NewsFragment;
+import party.hc.zrnews.mainFragments.SelfFragment;
 import party.hc.zrnews.mainFragments.VideosFragment;
 import party.hc.zrnews.mainFragments.firstFragment;
 
@@ -86,6 +87,6 @@ public class MainActivity extends AppCompatActivity {
         list.add(new NewsFragment());
         list.add(new VideosFragment());
         list.add(new firstFragment());
-        list.add(new firstFragment());
+        list.add(new SelfFragment());
     }
 }
