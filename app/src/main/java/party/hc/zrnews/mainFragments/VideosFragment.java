@@ -35,7 +35,9 @@ public class VideosFragment extends BFragment {
 
         List<VideosBFragment> newsBFragments=new ArrayList<>();
         for(int i=0;i<CONTENT_TITLES.length;i++){
-            newsBFragments.add(new VideosGeneralFragment(CONTENT_TITLES[i]));
+            VideosGeneralFragment videosGeneralFragment = new VideosGeneralFragment();
+            videosGeneralFragment.setTitle(CONTENT_TITLES[i]);
+            newsBFragments.add(videosGeneralFragment);
         }
 
         pager.setAdapter(new VideosFragmentAdapter(getChildFragmentManager(),newsBFragments));

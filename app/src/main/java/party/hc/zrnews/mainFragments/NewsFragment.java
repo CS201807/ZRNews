@@ -36,7 +36,9 @@ public class NewsFragment extends BFragment {
 
         List<NewsBFragment> newsBFragments=new ArrayList<>();
         for(int i=0;i<CONTENT_TITLES.length;i++){
-            newsBFragments.add(new NewsGeneralFragment(CONTENT_TITLES[i]));
+            NewsGeneralFragment newsGeneralFragment = new NewsGeneralFragment();
+            newsGeneralFragment.setTitle(CONTENT_TITLES[i]);
+            newsBFragments.add(newsGeneralFragment);
         }
 
         pager.setAdapter(new NewsFragmentAdapter(getChildFragmentManager(),newsBFragments));

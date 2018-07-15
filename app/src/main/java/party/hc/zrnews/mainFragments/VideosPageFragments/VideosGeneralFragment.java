@@ -24,11 +24,18 @@ public class VideosGeneralFragment  extends VideosBFragment{
     private ArrayList<NewsBean> newsList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private VideosAdapter myAdapter;
-    public VideosGeneralFragment(String title) {
-        this.title = title;
+    public VideosGeneralFragment() {
     }
     private String openUrl="  ";
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
+
+
+
     public String getTitle() {
         return title;
     }
@@ -61,7 +68,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
     private void  initData(){
         for(int i=0;i<100;i++){
 
-            newsList.add(new NewsBean("nihao"+i, openUrl));
+            newsList.add(new NewsBean());
         }
 
     }
@@ -81,7 +88,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
         }
 
         private void initData() {
-            newsList.add(new NewsBean("不好！", openUrl));
+            newsList.add(new NewsBean());
         }
     }
 

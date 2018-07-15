@@ -24,11 +24,15 @@ import party.hc.zrnews.bean.NewsBean;
  */
 
 public class NewsGeneralFragment extends NewsBFragment {
+    public NewsGeneralFragment() {
+    }
+
     private String title;
     private ArrayList<NewsBean> newsList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private NewsAdapter myAdapter;
-    public NewsGeneralFragment(String title) {
+
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -50,7 +54,7 @@ public class NewsGeneralFragment extends NewsBFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(),NewsReadActivity.class);
-                intent.putExtra("url",newsList.get(i).getOpenUrl());
+                intent.putExtra("url",newsList.get(i).getUrl());
                 getContext().startActivity(intent);
             }
         });
@@ -73,7 +77,7 @@ public class NewsGeneralFragment extends NewsBFragment {
     private void  initData(){
         for(int i=0;i<100;i++){
 
-            newsList.add(new NewsBean("不好！","https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_7147890303014972228%22%7D&n_type=0&p_from=1"));
+            newsList.add(new NewsBean());
         }
 
     }
@@ -93,7 +97,7 @@ public class NewsGeneralFragment extends NewsBFragment {
         }
 
         private void initData() {
-            newsList.add(new NewsBean("不好！","https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_7147890303014972228%22%7D&n_type=0&p_from=1"));
+            newsList.add(new NewsBean());
         }
     }
 
