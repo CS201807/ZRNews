@@ -11,9 +11,9 @@ import party.hc.zrnews.bean.UserBean;
  */
 
 public class Login {
-    private String path;
+    private static String path;
 
-    public String login(String data, UserBean userBean) throws JSONException{
+    public static String login(String data, UserBean userBean) throws JSONException{
 
         String str = HttpUtil.postHttpRequset(path,data);
 

@@ -14,9 +14,9 @@ import party.hc.zrnews.bean.DetailBean;
  */
 
 public class GetDetails {
-    private String path;
+    private static String path;
 
-    public void getDetails(String string, DetailBean detailBean)  throws JSONException{
+    public static void getDetails(String string, DetailBean detailBean)  throws JSONException{
 
         String str = HttpUtil.postHttpRequset(path,string);//地址，新闻id
 

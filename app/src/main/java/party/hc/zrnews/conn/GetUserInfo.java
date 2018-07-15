@@ -20,11 +20,11 @@ import party.hc.zrnews.bean.UserBean;
  */
 
 public class GetUserInfo {
-    private String path;
+    private static String path;
 
 
     //传入参数 userbean类型
-    public void getUserInfo(UserBean userBean) throws JSONException {
+    public static void getUserInfo(UserBean userBean) throws JSONException {
 
         //发送请求
         String str = HttpUtil.sendHttpRequset(path);
