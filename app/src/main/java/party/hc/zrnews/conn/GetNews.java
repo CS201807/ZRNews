@@ -38,6 +38,7 @@ public class GetNews {
             newsBean.setThumbnail(temp.optString("thumbnail_pic_s0"));
             newsBean.setThumbnail1(temp.optString("thumbnail_pic_s1"));
             newsBean.setThumbnail2(temp.optString("thumbnail_pic_s2"));
+            newsBean.setUiType(temp.optString("ui_type"));
             newsBeanList.add(newsBean);
 
         }

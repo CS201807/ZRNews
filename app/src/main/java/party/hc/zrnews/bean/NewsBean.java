@@ -15,6 +15,7 @@ public class NewsBean {
     private String thumbnail;
     private String thumbnail1;
     private String thumbnail2;
+    private String uiType;
 
     public String getId() {
         return id;
@@ -52,6 +53,10 @@ public class NewsBean {
         return thumbnail2;
     }
 
+    public String getUiType() {
+        return uiType;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -86,6 +91,10 @@ public class NewsBean {
 
     public void setThumbnail2(String thumbnail2) {
         this.thumbnail2 = thumbnail2;
+    }
+
+    public void setUiType(String uiType) {
+        this.uiType = uiType;
     }
 }
 

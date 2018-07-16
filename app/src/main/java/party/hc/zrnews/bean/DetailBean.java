@@ -34,4 +34,8 @@ public class DetailBean {
     public void setCbl(List<CommentBean> cbl) {
         this.cbl = cbl;
     }
+
+    public int getCommentNum(){
+        return cbl.size();
+    }
 }

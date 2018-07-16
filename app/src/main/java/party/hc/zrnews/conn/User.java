@@ -4,6 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
+import party.hc.zrnews.bean.NewsBean;
 import party.hc.zrnews.bean.UserBean;
 
 
@@ -12,46 +15,62 @@ import party.hc.zrnews.bean.UserBean;
  */
 
 public class User {
+    public String USER_ID;
 
-    public static String login(String account, String password, UserBean userBean) throws JSONException {
-        String data = "username=" + account + "&" + "password" + password;
+    public User(String USER_ID) {this.USER_ID = USER_ID;
+    }
+
+    public void getLikeList(List<NewsBean> newsBeanList) throws JSONException {
+        String data = "userId=" + USER_ID;
         String path = "";
 
         String str = HttpUtil.postHttpRequset(path, data);
 
         JSONObject json = new JSONObject(str);
-        String result = json.getJSONObject("result").toString();
-        if (result.equals("NotFound")) {
-            return result;
-        } else if (result.equals("WrongPassword")) {
-            return result;
-        } else {
-            JSONArray array = json.getJSONArray("data");
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject temp = array.getJSONObject(i);
-                userBean.setId(temp.optString("id"));
-                userBean.setName(temp.optString("name"));
-                userBean.setAvatar(temp.optString("avatar"));
-                userBean.setPhoneNum(temp.optString("phoneNum"));
-            }
-            return "OK";
+        JSONArray array = json.getJSONArray("data");
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject temp = array.getJSONObject(i);
+            NewsBean newsBean = new NewsBean();
+            newsBean.setId(temp.optString("uniquekey"));
+            newsBean.setTitle(temp.optString("title"));
+            newsBean.setDate(temp.optString("date"));
+            newsBean.setCategory(temp.optString("category"));
+            newsBean.setAuthor(temp.optString("author_name"));
+            newsBean.setUrl(temp.optString("url"));
+            newsBean.setThumbnail(temp.optString("thumbnail_pic_s0"));
+            newsBean.setThumbnail1(temp.optString("thumbnail_pic_s1"));
+            newsBean.setThumbnail2(temp.optString("thumbnail_pic_s2"));
+            newsBean.setUiType(temp.optString("ui_type"));
+            newsBeanList.add(newsBean);
+
         }
     }
 
 
-    public static String register(String id, String psw, String name, String phoneNum) throws JSONException {
-        String data = "id=" + id + "&" + "password=" + psw + "&" + "name=" + name + "&" + "phoneNum=" + phoneNum;
+    public void getHistoryList(List<NewsBean> newsBeanList) throws JSONException {
+        String data = "userId=" + USER_ID;
         String path = "";
 
         String str = HttpUtil.postHttpRequset(path, data);
+
         JSONObject json = new JSONObject(str);
-        String result = json.getJSONObject("result").toString();
-        if (result.equals("IDExisted")) {
-            return result;
-        } else if (result.equals("Wrong")) {
-            return result;
-        } else {
-            return "OK";
+        JSONArray array = json.getJSONArray("data");
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject temp = array.getJSONObject(i);
+            NewsBean newsBean = new NewsBean();
+            newsBean.setId(temp.optString("uniquekey"));
+            newsBean.setTitle(temp.optString("title"));
+            newsBean.setDate(temp.optString("date"));
+            newsBean.setCategory(temp.optString("category"));
+            newsBean.setAuthor(temp.optString("author_name"));
+            newsBean.setUrl(temp.optString("url"));
+            newsBean.setThumbnail(temp.optString("thumbnail_pic_s0"));
+            newsBean.setThumbnail1(temp.optString("thumbnail_pic_s1"));
+            newsBean.setThumbnail2(temp.optString("thumbnail_pic_s2"));
+            newsBean.setUiType(temp.optString("ui_type"));
+            newsBeanList.add(newsBean);
+
         }
     }
+
 }

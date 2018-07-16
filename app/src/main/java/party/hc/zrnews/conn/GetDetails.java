@@ -1,9 +1,12 @@
 package party.hc.zrnews.conn;
 
+import android.media.JetPlayer;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import party.hc.zrnews.bean.CommentBean;
@@ -14,10 +17,9 @@ import party.hc.zrnews.bean.DetailBean;
  */
 
 public class GetDetails {
-    private static String path;
 
     public static void getDetails(String string, DetailBean detailBean)  throws JSONException{
-
+        String path = "";
         String str = HttpUtil.postHttpRequset(path,string);//地址，新闻id
 
         JSONObject json = new JSONObject(str);
@@ -25,7 +27,7 @@ public class GetDetails {
         JSONObject newsId = result.getJSONObject("newsId");
         JSONObject likeNum = result.getJSONObject("likeNum");
         JSONArray array = result.getJSONArray("data");
-        List<CommentBean> commentBeanList = null;
+        List<CommentBean> commentBeanList = new ArrayList<>();
 
         for (int i = 0; i < array.length(); i++) {
             JSONObject temp = array.getJSONObject(i);
@@ -42,7 +44,34 @@ public class GetDetails {
         detailBean.setLikeNum(likeNum.toString());
         detailBean.setCbl(commentBeanList);
 
-        str = "OK";
+    }
+
+    public static boolean like(String newsId,String userId) throws JSONException{
+        String data = "newsId=" + newsId + "&" + "userId=" +userId;
+        String path = "";
+
+        String str = HttpUtil.postHttpRequset(path,data);
+        JSONObject json = new JSONObject(str);
+        String result = json.getJSONObject("result").toString();
+        if (result.equals("OK")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean addComment(String newsId,String userId,String message ) throws JSONException{
+        String data = "newsId=" + newsId + "&" + "userId=" +userId + "&" + "message=" + message;
+        String path = "";
+
+        String str = HttpUtil.postHttpRequset(path,data);
+        JSONObject json = new JSONObject(str);
+        String result = json.getJSONObject("result").toString();
+        if (result.equals("OK")) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
