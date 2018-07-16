@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import party.hc.zrnews.R;
+import party.hc.zrnews.bean.Conponent_Style5;
 import party.hc.zrnews.bean.NewsBean;
 
 /**
@@ -45,17 +46,19 @@ public class NewsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder;
-        if(view==null){
-            view=View.inflate(context, R.layout.conponent_style4,null);
-            holder=new ViewHolder();
-            holder.tvName=(TextView)view.findViewById(R.id.CS4_title);
-            view.setTag(holder);
-        }
-        View v=view;
-        holder=(ViewHolder) v.getTag();
-        holder.tvName.setText(data.get(i).getTitle());
-        return v;
+//        ViewHolder holder;
+//        if(view==null){
+//            view=View.inflate(context, R.layout.conponent_style4,null);
+//            holder=new ViewHolder();
+//            holder.tvName=(TextView)view.findViewById(R.id.CS4_title);
+//            view.setTag(holder);
+//        }
+//        View v=view;
+//        holder=(ViewHolder) v.getTag();
+//        holder.tvName.setText(data.get(i).getTitle());
+//        return v;
+        View view1=new Conponent_Style5(context,data.get(i),null);
+        return view1;
     }
 
     private class ViewHolder {

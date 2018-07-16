@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CollectActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:textSize="30dp"
+                android:text="我的收藏"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/search_block"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/search_shape"
+            android:gravity="center">
+
+            <party.hc.zrnews.UI.SearchEditText
+
+                android:textSize="20dp"
+                android:text="搜索你的收藏"
+                android:id="@+id/edit_search"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" />
+
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <party.hc.zrnews.UI.SearchListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </party.hc.zrnews.UI.SearchListView>
+                <TextView
+                    android:id="@+id/tv_clear"
+                    android:background="#f6f6f6"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:text="清除搜索历史"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/back_frg"
+        android:name="party.hc.zrnews.UI.BackFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/back" />
+</FrameLayout>
