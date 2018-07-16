@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/ubuntu/AndroidStudioProjects/ZRNews/viewPagerIndicator/src/main/shaders"/></dataSet><dataSet config="release"><source path="/home/ubuntu/AndroidStudioProjects/ZRNews/viewPagerIndicator/src/release/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="G:\AndroidProject\ZRNews\viewPagerIndicator\src\main\shaders"/></dataSet><dataSet config="release"><source path="G:\AndroidProject\ZRNews\viewPagerIndicator\src\release\shaders"/></dataSet></merger>

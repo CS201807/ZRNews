@@ -1,10 +1,18 @@
 [
     {
-        "merged": "/home/ubuntu/AndroidStudioProjects/ZRNews/viewPagerIndicator/build/intermediates/res/merged/release/drawable/news_tab_item_bg_select.9.png",
-        "source": "/home/ubuntu/AndroidStudioProjects/ZRNews/viewPagerIndicator/src/main/res/drawable/news_tab_item_bg_select.9.png"
+        "merged": "G:\\AndroidProject\\ZRNews\\viewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
+        "source": "G:\\AndroidProject\\ZRNews\\viewPagerIndicator\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
     },
     {
-        "merged": "/home/ubuntu/AndroidStudioProjects/ZRNews/viewPagerIndicator/build/intermediates/res/merged/release/drawable/vpi__tab_indicator.xml",
-        "source": "/home/ubuntu/AndroidStudioProjects/ZRNews/viewPagerIndicator/src/main/res/drawable/vpi__tab_indicator.xml"
+        "merged": "G:\\home\\ubuntu\\AndroidStudioProjects\\ZRNews\\viewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
+        "source": "G:\\home\\ubuntu\\AndroidStudioProjects\\ZRNews\\viewPagerIndicator\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
+    },
+    {
+        "merged": "G:\\AndroidProject\\ZRNews\\viewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\news_tab_item_bg_select.9.png",
+        "source": "G:\\AndroidProject\\ZRNews\\viewPagerIndicator\\src\\main\\res\\drawable\\news_tab_item_bg_select.9.png"
+    },
+    {
+        "merged": "G:\\home\\ubuntu\\AndroidStudioProjects\\ZRNews\\viewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\news_tab_item_bg_select.9.png",
+        "source": "G:\\home\\ubuntu\\AndroidStudioProjects\\ZRNews\\viewPagerIndicator\\src\\main\\res\\drawable\\news_tab_item_bg_select.9.png"
     }
 ]

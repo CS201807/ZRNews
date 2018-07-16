@@ -11,13 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import party.hc.zrnews.MainActivity;
 import party.hc.zrnews.NewsReadActivity;
 import party.hc.zrnews.R;
 import party.hc.zrnews.bean.NewsBean;
+import party.hc.zrnews.conn.GetNews;
+import party.hc.zrnews.tools.MArrayList;
 
 /**
  * Created by ubuntu on 18-7-13.
@@ -44,7 +50,7 @@ public class NewsGeneralFragment extends NewsBFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.page_news_general,null);
-        newsList=new ArrayList<>();
+        newsList=new MArrayList<>();
         initData();
         //listview
         ListView listView=(ListView) view.findViewById(R.id.listView1);
@@ -71,11 +77,18 @@ public class NewsGeneralFragment extends NewsBFragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        myAdapter.notifyDataSetChanged();
+    }
+
     /**
      * 初始化数据
      */
     private void  initData(){
-        for(int i=0;i<100;i++){
+        for(int i=0;i<10;i++){
 
             newsList.add(new NewsBean());
         }
@@ -97,7 +110,12 @@ public class NewsGeneralFragment extends NewsBFragment {
         }
 
         private void initData() {
-            newsList.add(new NewsBean());
+            GetNews news=new GetNews();
+            try {
+                news.getNews(newsList,"头条");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 

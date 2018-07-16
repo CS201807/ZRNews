@@ -12,14 +12,16 @@ import party.hc.zrnews.bean.NewsBean;
  */
 
 public class GetNews {
-    private String path;
+    private static String path = "http://115.159.205.152:8080/WebNews/DoArticle";
 
     //传入参数newsbean类型
-    public void getNews(List<NewsBean> newsBeanList) throws JSONException {
+    public static void getNews(List<NewsBean> newsBeanList,String data) throws JSONException {
 
         //发送http请求
-        path = "http://115.159.205.152:8080/WebNews/DoArticle";
-        String str = HttpUtil.sendHttpRequset(path);
+        String message = "article_type=";
+        message += data;
+
+        String str = HttpUtil.postHttpRequset(path,message);
         //获得返回数据
         JSONObject json = new JSONObject(str);
         JSONArray array = json.getJSONArray("data");
