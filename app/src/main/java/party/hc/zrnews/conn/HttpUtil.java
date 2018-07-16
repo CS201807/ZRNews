@@ -66,9 +66,10 @@ public class HttpUtil {
             conn.setReadTimeout(5000);
             conn.setDoInput(true);
             conn.setDoOutput(true);
+            conn.setUseCaches(false);
             //发送数据
             DataOutputStream out = new DataOutputStream(conn.getOutputStream());
-            out.writeBytes(message);
+            out.write(message.getBytes());
 
             //  获得返回数据
             InputStream inputStream = conn.getInputStream();
