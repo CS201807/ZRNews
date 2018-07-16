@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (i){
                     case R.id.radioButton:
                         search_frameLayout.setVisibility(View.VISIBLE);
+                        toolbar.setVisibility(View.VISIBLE);
                         viewPager.setCurrentItem(0,false);
 
 //                        //创建一个Fragment
@@ -63,15 +64,17 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.radioButton7:
                         search_frameLayout.setVisibility(View.GONE);
+                        toolbar.setVisibility(View.VISIBLE);
                         viewPager.setCurrentItem(1,false);
                         break;
                     case R.id.radioButton6:
                         viewPager.setCurrentItem(2,false);
                         search_frameLayout.setVisibility(View.GONE);
-
+                        toolbar.setVisibility(View.VISIBLE);
                         break;
                     case R.id.radioButton5:
                         search_frameLayout.setVisibility(View.GONE);
+                        toolbar.setVisibility(View.GONE);
                         viewPager.setCurrentItem(3,false);
                         break;
 
