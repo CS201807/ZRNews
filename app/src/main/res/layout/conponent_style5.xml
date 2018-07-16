@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="95dp"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/CS5_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:text="标题部分标题部分十一字标题部分标题部分十一字"
+            android:textSize="20sp"
+            android:maxLines="2"/>
+
+        <!--只是一个分割线-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/CS5_text1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                android:gravity="bottom"
+                android:textSize="12sp"
+                android:text="腾讯新闻"/>
+
+            <TextView
+                android:id="@+id/CS5_text2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:gravity="bottom"
+                android:textSize="12sp"
+                android:text="刚刚"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></LinearLayout>
+    <ImageView
+        android:id="@+id/CS5_pic"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="#88738922"></ImageView>
+</LinearLayout>
