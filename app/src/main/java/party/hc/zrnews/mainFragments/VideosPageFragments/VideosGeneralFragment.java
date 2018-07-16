@@ -10,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 
 import party.hc.zrnews.R;
 import party.hc.zrnews.bean.NewsBean;
+import party.hc.zrnews.bean.VideoBean;
+import party.hc.zrnews.conn.GetVideos;
 
 /**
  * Created by ubuntu on 18-7-15.
@@ -21,7 +25,7 @@ import party.hc.zrnews.bean.NewsBean;
 
 public class VideosGeneralFragment  extends VideosBFragment{
     private String title;
-    private ArrayList<NewsBean> newsList;
+    private ArrayList<VideoBean> newsList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private VideosAdapter myAdapter;
     public VideosGeneralFragment() {
@@ -68,7 +72,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
     private void  initData(){
         for(int i=0;i<100;i++){
 
-            newsList.add(new NewsBean());
+            newsList.add(new VideoBean());
         }
 
     }
@@ -88,7 +92,12 @@ public class VideosGeneralFragment  extends VideosBFragment{
         }
 
         private void initData() {
-            newsList.add(new NewsBean());
+            try {
+                GetVideos.getVideos(newsList);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            newsList.add(new VideoBean());
         }
     }
 
