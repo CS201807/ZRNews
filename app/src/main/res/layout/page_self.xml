@@ -67,6 +67,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <Button
+            android:id="@+id/history"
             android:background="#fff"
             android:text="历史"
             android:drawableTop="@drawable/history"
@@ -89,8 +90,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/message"
             android:textSize="20dp"
-
             android:gravity="left|center"
             android:background="#fff"
             android:layout_alignParentLeft="true"
@@ -106,8 +107,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/news_feed"
             android:textSize="20dp"
-
             android:gravity="left|center"
             android:background="#fff"
             android:layout_alignParentLeft="true"
@@ -123,8 +124,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <Button
+            android:id="@+id/suggest"
             android:textSize="20dp"
-
             android:gravity="left|center"
             android:background="#fff"
             android:layout_alignParentLeft="true"
@@ -141,14 +142,14 @@
         android:layout_height="0dp">
         <Button
             android:textSize="20dp"
-
             android:gravity="left|center"
             android:background="#fff"
             android:layout_alignParentLeft="true"
             android:text="  系统设置"
             android:layout_gravity="left"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
     </RelativeLayout>
 
 

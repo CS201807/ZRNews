@@ -68,7 +68,7 @@
     </LinearLayout>
 
     <fragment
-        android:id="@+id/back_frg"
+        android:id="@+id/frg1"
         android:name="party.hc.zrnews.UI.BackFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
