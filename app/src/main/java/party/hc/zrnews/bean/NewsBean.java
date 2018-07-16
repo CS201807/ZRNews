@@ -1,10 +1,12 @@
 package party.hc.zrnews.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by ubuntu on 18-7-11.
  */
 
-public class NewsBean {
+public class NewsBean  implements Serializable{
 
     private String id;
     private String title;

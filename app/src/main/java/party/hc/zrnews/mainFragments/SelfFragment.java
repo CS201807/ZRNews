@@ -15,6 +15,7 @@ import party.hc.zrnews.MessageActivity;
 import party.hc.zrnews.NewsFeedActivity;
 import party.hc.zrnews.R;
 import party.hc.zrnews.SelfInfoActivity;
+import party.hc.zrnews.SettingsActivity;
 import party.hc.zrnews.SuggestionActivity;
 
 /**
@@ -72,6 +73,14 @@ public class SelfFragment extends BFragment  {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(), SuggestionActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button settings=view.findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), SettingsActivity.class);
                 startActivity(intent);
             }
         });

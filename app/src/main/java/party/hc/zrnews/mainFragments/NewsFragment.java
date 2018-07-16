@@ -26,7 +26,7 @@ import party.hc.zrnews.mainFragments.NewsPageFragments.NewsGeneralFragment;
  */
 
 public class NewsFragment extends BFragment {
-    private static final String[] CONTENT_TITLES = new String[]{"推荐", "热点", "当地", "视频", "社会", "图片", "娱乐", "问答", "科技", "汽车", "财经",};
+    private static final String[] CONTENT_TITLES = new String[]{"头条", "社会", "国内",  "国际", "娱乐",  "体育", "军事","科技","财经","时尚"};
 
     @Nullable
     @Override

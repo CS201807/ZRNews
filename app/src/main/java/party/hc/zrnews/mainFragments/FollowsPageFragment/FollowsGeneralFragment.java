@@ -1,6 +1,5 @@
 package party.hc.zrnews.mainFragments.FollowsPageFragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,18 +11,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import org.json.JSONException;
-
 import java.util.ArrayList;
 
-import party.hc.zrnews.NewsReadActivity;
 import party.hc.zrnews.R;
-import party.hc.zrnews.UI.MicroArticle;
 import party.hc.zrnews.bean.MicroArticleBean;
-import party.hc.zrnews.bean.NewsBean;
 import party.hc.zrnews.conn.GetNews;
-import party.hc.zrnews.mainFragments.NewsPageFragments.NewsAdapter;
-import party.hc.zrnews.mainFragments.NewsPageFragments.NewsGeneralFragment;
 import party.hc.zrnews.tools.MArrayList;
 
 /**
@@ -60,7 +52,7 @@ public class FollowsGeneralFragment extends FollowsBFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getContext(),NewsReadActivity.class);
+//                Intent intent = new Intent(getContext(),UrlReadActivity.class);
 //                intent.putExtra("url",newsList.get(i).getUrl());
 //                getContext().startActivity(intent);
             }
