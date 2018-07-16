@@ -19,11 +19,11 @@ import android.widget.ImageView;
 import party.hc.zrnews.R;
 
 public class BitmapShaders extends View{
-    private BitmapShader bitmapShader=null;
-    private Bitmap bitmap=null;
+    private BitmapShader bitmapShader;
+    private Bitmap bitmap;
     private ShapeDrawable shapeDrawable=null;
-    private int BitmapWidth=0;
-    private int BitmapHeight=0;
+    private int BitmapWidth;
+    private int BitmapHeight;
 
 //    /** 图片宽和高的比例 */
 //    private float ratio = 1f;
