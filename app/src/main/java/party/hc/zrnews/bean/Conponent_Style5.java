@@ -1,6 +1,7 @@
 package party.hc.zrnews.bean;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -13,7 +14,7 @@ import party.hc.zrnews.R;
 
 public class Conponent_Style5 extends RelativeLayout {
 
-    public Conponent_Style5(Context context, AttributeSet attrs, String title, String text1, String text2, String pic) {
+    public Conponent_Style5(Context context,NewsBean news, @Nullable AttributeSet attrs) {
 
         super(context, attrs);
 
@@ -26,11 +27,11 @@ public class Conponent_Style5 extends RelativeLayout {
         TextView CS5_text2 = findViewById(R.id.CS5_text2);
         ImageView CS5_pic = findViewById(R.id.CS5_pic);
 
-        CS5_title.setText(title);
-        CS5_text1.setText(text1);
-        CS5_text2.setText(text2);
+        CS5_title.setText(news.getTitle());
+        CS5_text1.setText(news.getAuthor());
+        CS5_text2.setText(news.getDate());
 
-        Glide.with(getContext()). load(pic).into(CS5_pic);
+        Glide.with(getContext()). load(news.getThumbnail()).into(CS5_pic);
 
     }
 }

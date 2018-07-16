@@ -40,7 +40,7 @@ public class MicroArticle extends LinearLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
 
     }
-    private void init(MicroArticleBean microArticleBean){
+    public void init(MicroArticleBean microArticleBean){
         LayoutInflater.from(getContext()).inflate(R.layout.micro_article_header,this,true);
         ImageView headPic=(ImageView)findViewById(R.id.imageView);
         TextView userName=(TextView)findViewById(R.id.textView);
