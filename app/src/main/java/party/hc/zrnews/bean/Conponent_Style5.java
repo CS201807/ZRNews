@@ -22,13 +22,12 @@ public class Conponent_Style5 extends RelativeLayout {
 
         // 获取控件
         TextView CS5_title = findViewById(R.id.CS5_title);
-        TextView CS5_text1 = findViewById(R.id.CS5_text1);
-        TextView CS5_text2 = findViewById(R.id.CS5_text2);
+        TextView CS5_text = findViewById(R.id.CS5_text);
         ImageView CS5_pic = findViewById(R.id.CS5_pic);
 
         CS5_title.setText(title);
-        CS5_text1.setText(text1);
-        CS5_text2.setText(text2);
+        CS5_text.setText(text1+" | "+text2);
+
 
         Glide.with(getContext()). load(pic).into(CS5_pic);
 

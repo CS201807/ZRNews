@@ -21,7 +21,7 @@ public class Conponent_Style4 extends RelativeLayout{
         super(context, attrs);
 
         // 加载布局
-        LayoutInflater.from(context).inflate(R.layout.conponent_style2, this);
+        LayoutInflater.from(context).inflate(R.layout.conponent_style4, this);
 
         // 获取控件
         TextView CS4_title = findViewById(R.id.CS4_title);
