@@ -19,11 +19,11 @@ import android.widget.ImageView;
 import party.hc.zrnews.R;
 
 public class BitmapShaders extends View{
-    private BitmapShader bitmapShader=null;
-    private Bitmap bitmap=null;
+    private BitmapShader bitmapShader;
+    private Bitmap bitmap;
     private ShapeDrawable shapeDrawable=null;
-    private int BitmapWidth=0;
-    private int BitmapHeight=0;
+    private int BitmapWidth;
+    private int BitmapHeight;
 
 //    /** 图片宽和高的比例 */
 //    private float ratio = 1f;
@@ -38,8 +38,8 @@ public class BitmapShaders extends View{
         bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.h)).getBitmap();
         BitmapWidth=bitmap.getWidth();
         BitmapHeight=bitmap.getHeight();
-        float scaleWidth = ((float) 150) /BitmapWidth;
-        float scaleHeight = ((float) 150) / BitmapHeight;
+        float scaleWidth = ((float) 300) /BitmapWidth;
+        float scaleHeight = ((float) 300) / BitmapHeight;
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, BitmapWidth, BitmapHeight, matrix, true);
@@ -53,8 +53,8 @@ public class BitmapShaders extends View{
         bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.h)).getBitmap();
         BitmapWidth=bitmap.getWidth();
         BitmapHeight=bitmap.getHeight();
-        float scaleWidth = ((float) 150) /BitmapWidth;
-        float scaleHeight = ((float) 150) / BitmapHeight;
+        float scaleWidth = ((float) 300) /BitmapWidth;
+        float scaleHeight = ((float) 300) / BitmapHeight;
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, BitmapWidth, BitmapHeight, matrix, true);
@@ -67,8 +67,8 @@ public class BitmapShaders extends View{
         BitmapWidth=bitmap.getWidth();
         BitmapHeight=bitmap.getHeight();
 
-        float scaleWidth = ((float) 150) /BitmapWidth;
-        float scaleHeight = ((float) 150 ) / BitmapHeight;
+        float scaleWidth = ((float) 300) /BitmapWidth;
+        float scaleHeight = ((float) 300 ) / BitmapHeight;
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, BitmapWidth, BitmapHeight, matrix, true);
@@ -120,7 +120,7 @@ public class BitmapShaders extends View{
         Paint paint=shapeDrawable.getPaint();
         paint.setShader(bitmapShader);
 
-        shapeDrawable.setBounds(20,10,170,160);
+        shapeDrawable.setBounds(20,10,320,310);
         shapeDrawable.draw(canvas);
     }
 }

@@ -17,10 +17,11 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:background="#0000ff"
+                android:background="@null"
                 android:drawableStart="@drawable/back"
                 />
 
@@ -28,7 +29,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:orientation="horizontal">
 
             <TextView
@@ -51,7 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp">
             <TextView
-                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_marginLeft="30dp"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:text="name"/>
@@ -60,14 +62,15 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
             <Button
-                android:background="#ffffff"
+                android:layout_marginLeft="20dp"
+                android:background="@null"
                 android:textSize="10dp"
                 android:text="0 关注"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:textColor="#ff00ff"/>
             <Button
-                android:background="#ffffff"
+                android:background="@null"
                 android:textSize="10dp"
                 android:text="0 粉丝"
                 android:layout_width="50dp"
@@ -78,13 +81,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+
                 android:drawableBottom="@drawable/bottom_line"
                 android:textColor="#ff0000"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:text="动态"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+
                 />
         </LinearLayout>
         <ListView
@@ -98,7 +103,7 @@
     <fragment
         android:id="@+id/head"
         android:name="party.hc.zrnews.UI.HeadFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         tools:layout="@layout/head_shot" />
 </FrameLayout>

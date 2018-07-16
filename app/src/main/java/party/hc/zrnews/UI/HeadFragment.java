@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import party.hc.zrnews.R;
 
 
-class HeadFragment extends Fragment {
+public class HeadFragment extends Fragment {
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
