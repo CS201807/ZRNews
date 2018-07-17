@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/back_btn"
         android:layout_marginLeft="10dp"
         android:background="@null"

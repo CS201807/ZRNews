@@ -26,12 +26,13 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".CollectActivity" />
-        <activity android:name=".SelfInfoActivity"></activity>
-        <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".HistoryActivity"></activity>
-        <activity android:name=".MessageActivity"></activity>
-        <activity android:name=".NewsFeedActivity"></activity>
-        <activity android:name=".SuggestionActivity"></activity>
+        <activity android:name=".SelfInfoActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".NewsFeedActivity" />
+        <activity android:name=".SuggestionActivity" />
+        <activity android:name=".EditInfoActivity"></activity>
     </application>
 
 </manifest>

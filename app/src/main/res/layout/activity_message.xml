@@ -10,10 +10,11 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="50dp">
             <TextView
-                android:background="#dfdbdb"
-                android:textSize="30dp"
+                android:textColor="#fff"
+                android:background="#66ccff"
+                android:textSize="20dp"
                 android:text="我的消息"
                 android:gravity="center"
                 android:layout_width="match_parent"
@@ -21,7 +22,7 @@
                 tools:ignore="HardcodedText"/>
         </LinearLayout>
         <LinearLayout
-            android:background="#dbeae5"
+            android:background="#f5f5f5"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">

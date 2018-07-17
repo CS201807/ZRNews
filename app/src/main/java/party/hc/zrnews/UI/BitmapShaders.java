@@ -33,46 +33,32 @@ public class BitmapShaders extends View{
 //    }
 
 
-    public BitmapShaders(Context context) {
-        super(context);
+    private void init(){
         bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.h)).getBitmap();
         BitmapWidth=bitmap.getWidth();
         BitmapHeight=bitmap.getHeight();
-        float scaleWidth = ((float) 150) /BitmapWidth;
-        float scaleHeight = ((float) 150) / BitmapHeight;
+        float scaleWidth = ((float) 300) /BitmapWidth;
+        float scaleHeight = ((float) 300) / BitmapHeight;
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, BitmapWidth, BitmapHeight, matrix, true);
         bitmapShader=new BitmapShader(newbm, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+    }
+    public BitmapShaders(Context context) {
+        super(context);
+        init();
     }
 
 
 
     public BitmapShaders(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.h)).getBitmap();
-        BitmapWidth=bitmap.getWidth();
-        BitmapHeight=bitmap.getHeight();
-        float scaleWidth = ((float) 150) /BitmapWidth;
-        float scaleHeight = ((float) 150) / BitmapHeight;
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, BitmapWidth, BitmapHeight, matrix, true);
-        bitmapShader=new BitmapShader(newbm, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+        init();
     }
 
     public BitmapShaders(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        bitmap=((BitmapDrawable)getResources().getDrawable(R.drawable.h)).getBitmap();
-        BitmapWidth=bitmap.getWidth();
-        BitmapHeight=bitmap.getHeight();
-
-        float scaleWidth = ((float) 150) /BitmapWidth;
-        float scaleHeight = ((float) 150 ) / BitmapHeight;
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, BitmapWidth, BitmapHeight, matrix, true);
-        bitmapShader=new BitmapShader(newbm, Shader.TileMode.CLAMP,Shader.TileMode.CLAMP);
+        init();
     }
 
 //    @Override
@@ -120,7 +106,7 @@ public class BitmapShaders extends View{
         Paint paint=shapeDrawable.getPaint();
         paint.setShader(bitmapShader);
 
-        shapeDrawable.setBounds(20,10,170,160);
+        shapeDrawable.setBounds(20,10,320,310);
         shapeDrawable.draw(canvas);
     }
 }

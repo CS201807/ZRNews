@@ -19,5 +19,13 @@ public class SelfInfoActivity extends AppCompatActivity {
                 finish();
             }
         });
+        final Button edit= (Button) findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(SelfInfoActivity.this,EditInfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

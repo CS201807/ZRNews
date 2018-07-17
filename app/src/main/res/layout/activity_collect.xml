@@ -5,14 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".CollectActivity">
     <LinearLayout
+        android:background="#f5f5f5"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="50dp">
             <TextView
-                android:textSize="30dp"
+                android:textColor="#fff"
+                android:background="#66ccff"
+                android:textSize="20dp"
                 android:text="我的收藏"
                 android:gravity="center"
                 android:layout_width="match_parent"
@@ -28,7 +31,7 @@
             android:gravity="center">
 
             <party.hc.zrnews.UI.SearchEditText
-
+                android:textColor="#b3a2a2"
                 android:textSize="20dp"
                 android:text="搜索你的收藏"
                 android:id="@+id/edit_search"
