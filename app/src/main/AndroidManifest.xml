@@ -32,7 +32,8 @@
         <activity android:name=".MessageActivity" />
         <activity android:name=".NewsFeedActivity" />
         <activity android:name=".SuggestionActivity" />
-        <activity android:name=".EditInfoActivity"></activity>
+        <activity android:name=".EditInfoActivity" />
+        <activity android:name=".PassWordActivity"></activity>
     </application>
 
 </manifest>

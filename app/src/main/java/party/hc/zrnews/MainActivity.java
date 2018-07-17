@@ -1,5 +1,6 @@
 package party.hc.zrnews;
 
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -34,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
     List<BFragment> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //toolbar
         final Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
         final FrameLayout search_frameLayout=(FrameLayout)findViewById(R.id.search_frameLayout);
