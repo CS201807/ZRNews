@@ -74,32 +74,24 @@ public class User {
         }
     }
 
-    public boolean likeThis(DetailBean detailBean) throws JSONException{
-        String data = "newsId=" + detailBean.getNewsId() + "&" + "userId=" +USER_ID;
+    public String likeThis(DetailBean detailBean) throws JSONException{
+        String data = "article_id=" + detailBean.getNewsId() + "&" + "user_id=" +USER_ID;
         String path = "http://115.159.205.152:8080/WebNews/DoLike";
 
         String str = HttpUtil.postHttpRequset(path,data);
         JSONObject json = new JSONObject(str);
-        String result = json.getJSONObject("result").toString();
-        if (result.equals("true")) {
-            return true;
-        } else {
-            return false;
-        }
+        String result = json.getString("status");
+        return result;
     }
 
-    public boolean addComment(DetailBean detailBean,String message ) throws JSONException{
-        String data = "newsId=" + detailBean.getNewsId() + "&" + "userId=" +USER_ID + "&" + "message=" + message;
-        String path = "http://115.159.205.152:8080/WebNews/DoComment";
+    public String addComment(DetailBean detailBean,String content ) throws JSONException{
+        String data = "article_id=" + detailBean.getNewsId() + "&" + "user_id=" +USER_ID + "&" + "content=" + content;
+        String path = "http://115.159.205.152:8080/WebNews/DoAddComment";
 
         String str = HttpUtil.postHttpRequset(path,data);
         JSONObject json = new JSONObject(str);
-        String result = json.getJSONObject("result").toString();
-        if (result.equals("true")) {
-            return true;
-        } else {
-            return false;
-        }
+        String result = json.getString("status");
+        return result;
 
     }
 
