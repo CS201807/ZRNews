@@ -33,8 +33,8 @@ public class Sign {
         }
     }
 
-    public String signUp(String phone,String psw, String username) throws JSONException {
-        String data = "phone=" + phone + "&" + "username=" + username + "&" + "password=" + psw ;
+    public String signUp(String phone, String username,String psw) throws JSONException {
+        String data = "phone=" + phone + "&" + "username=" + username + "&" + "password=" + psw + "&" + "sex=" + "" + "&" + "birthday=" + "" ;
         String path = "http://115.159.205.152:8080/WebNews/SignUp";
 
         String str = HttpUtil.postHttpRequset(path, data);
