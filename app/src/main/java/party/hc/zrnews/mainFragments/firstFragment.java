@@ -32,7 +32,7 @@ public class firstFragment extends BFragment {
 
         strings.add("https://www.baidu.com/img/bd_logo1.png?where=super");
         strings.add("https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1591167482,3441760007&fm=173&app=25&f=JPEG?w=218&h=146&s=CD81AC5042207107989BE253030040FB");
-        layout.addView(new SowingPics(getContext(),strings,new ArrayList<String>(),null));
+       // layout.addView(new SowingPics(,null));
         return view;
         //       return super.onCreateView(inflater, container, savedInstanceState);
 
