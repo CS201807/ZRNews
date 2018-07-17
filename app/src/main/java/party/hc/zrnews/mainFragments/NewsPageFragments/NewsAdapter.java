@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import party.hc.zrnews.R;
+import party.hc.zrnews.bean.Conponent_Style2;
 import party.hc.zrnews.bean.Conponent_Style5;
 import party.hc.zrnews.bean.NewsBean;
 
@@ -57,7 +58,15 @@ public class NewsAdapter extends BaseAdapter {
 //        holder=(ViewHolder) v.getTag();
 //        holder.tvName.setText(data.get(i).getTitle());
 //        return v;
-        View view1=new Conponent_Style5(context,data.get(i),null);
+        View view1;
+
+        if(data.get(i).getUiType().equals("1")){
+            view1=new Conponent_Style5(context,data.get(i), null);
+        }
+        else {
+            view1=new Conponent_Style2(context,data.get(i),null);
+        }
+
         return view1;
     }
 

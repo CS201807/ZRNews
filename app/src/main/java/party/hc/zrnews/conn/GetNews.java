@@ -36,7 +36,13 @@ public class GetNews {
             newsBean.setThumbnail(temp.optString("thumbnail_pic_s0"));
             newsBean.setThumbnail1(temp.optString("thumbnail_pic_s1"));
             newsBean.setThumbnail2(temp.optString("thumbnail_pic_s2"));
-            newsBean.setUiType(temp.optString("ui_type"));
+            if (newsBean.getThumbnail1().equals("null")|newsBean.getThumbnail2().equals("null")){
+                newsBean.setUiType("1");
+            }
+            else{
+                newsBean.setUiType("3");
+            }
+           // newsBean.setUiType(temp.optString("ui_type"));
             newsBeanList.add(newsBean);
 
         }

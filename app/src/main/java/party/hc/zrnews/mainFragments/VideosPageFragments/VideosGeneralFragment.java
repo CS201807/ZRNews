@@ -65,6 +65,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(),UrlReadActivity.class);
                 intent.putExtra("url",newsList.get(i).getUrl());
+                intent.putExtra("type","js");
                 getContext().startActivity(intent);
             }
         });

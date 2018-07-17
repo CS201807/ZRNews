@@ -38,7 +38,7 @@
                 android:id="@+id/CS2_pic1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/add_to_love"
+                android:src="@drawable/pic_loading"
                 android:layout_weight="1"/>
 
             <ImageView
@@ -51,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/h"/>
+                android:src="@drawable/pic_loading"/>
 
             <ImageView
                 android:layout_width="0dp"
@@ -63,7 +63,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/fake_user_name" />
+                android:src="@drawable/pic_loading" />
 
         </LinearLayout>
 

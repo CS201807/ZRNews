@@ -1,5 +1,6 @@
 package party.hc.zrnews.mainFragments.FollowsPageFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import party.hc.zrnews.R;
+import party.hc.zrnews.UI.MicroArticle;
+import party.hc.zrnews.UrlReadActivity;
 import party.hc.zrnews.bean.MicroArticleBean;
 import party.hc.zrnews.conn.GetNews;
 import party.hc.zrnews.tools.MArrayList;
@@ -24,6 +27,7 @@ import party.hc.zrnews.tools.MArrayList;
 
 public class FollowsGeneralFragment extends FollowsBFragment {
     public FollowsGeneralFragment() {
+
     }
 
     private String title;
@@ -52,9 +56,10 @@ public class FollowsGeneralFragment extends FollowsBFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getContext(),UrlReadActivity.class);
-//                intent.putExtra("url",newsList.get(i).getUrl());
-//                getContext().startActivity(intent);
+                Intent intent = new Intent(getContext(),UrlReadActivity.class);
+                intent.putExtra("url",newsList.get(i).getUrl());
+                intent.putExtra("type","js");
+                getContext().startActivity(intent);
             }
         });
         swipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.main_srl);
@@ -82,8 +87,9 @@ public class FollowsGeneralFragment extends FollowsBFragment {
      */
     private void  initData(){
         for(int i=0;i<10;i++){
-
-            newsList.add(new MicroArticleBean());
+            MicroArticleBean article=new MicroArticleBean();
+            article.setUrl("http://www.c.uc.cn/index.html?uc_param_str=frdnsnpfvecpntnwprdssskt&sku_inner_type=5&spu_id=1cbd27a7ea7c464c95c55311603ecbad&sku_id=234221019854812160");
+            newsList.add(article);
         }
 
     }
