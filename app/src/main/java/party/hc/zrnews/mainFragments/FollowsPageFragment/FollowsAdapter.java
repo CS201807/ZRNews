@@ -23,13 +23,13 @@ import party.hc.zrnews.mainFragments.NewsPageFragments.NewsAdapter;
 public class FollowsAdapter extends BaseAdapter {
     private Context context;
 
-    public FollowsAdapter(Context context, List<MicroArticleBean> data) {
+    public FollowsAdapter(Context context, List<NewsBean> data) {
         this.context = context;
         this.data = data;
         map=new HashMap<>();
     }
     private Map<Integer,Boolean> map;
-    private List<MicroArticleBean> data;
+    private List<NewsBean> data;
 
     @Override
     public int getCount() {

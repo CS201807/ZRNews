@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import party.hc.zrnews.R;
 import party.hc.zrnews.bean.MicroArticleBean;
+import party.hc.zrnews.bean.NewsBean;
 
 /**
  * Created by ubuntu on 18-7-16.
@@ -40,20 +41,21 @@ public class MicroArticle extends LinearLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
 
     }
-    public void init(MicroArticleBean microArticleBean){
+    public void init(NewsBean microArticleBean){
         LayoutInflater.from(getContext()).inflate(R.layout.micro_article_header,this,true);
         ImageView headPic=(ImageView)findViewById(R.id.imageView);
         TextView userName=(TextView)findViewById(R.id.textView);
         TextView content=(TextView)findViewById(R.id.textView5);
         GridLayout gridLayout=(GridLayout)findViewById(R.id.gridLayout);
-
-        content.setText(Html.fromHtml("#一起去看世界杯#世界杯决赛赛后，法国总统马克龙去到了克罗地亚更衣室，和莫德里奇的孩子的这一幕也是很有爱了。"));
+        userName.setText(microArticleBean.getAuthor());
+       // content.setText(Html.fromHtml("#一起去看世界杯#世界杯决赛赛后，法国总统马克龙去到了克罗地亚更衣室，和莫德里奇的孩子的这一幕也是很有爱了。"));
+        content.setText(microArticleBean.getTitle());
         ImageView img=new ImageView(getContext());
-        Glide.with(getContext()).load("http://bq-img.peco.uodoo.com/columbus/2015/uctest/365b24f8ecc07a2ff78fb7a1590afae9.jpg;,75,webp;6,C-C,228x228,1").into(img);
+        Glide.with(getContext()).load(microArticleBean.getThumbnail()).into(img);
         gridLayout.setColumnCount(3);//3 or 2
         gridLayout.addView(img);
         ImageView img2=new ImageView(getContext());
-        Glide.with(getContext()).load("http://bq-img.peco.uodoo.com/columbus/2015/uctest/466577d74d078c1ff91ce6918bfb9f85.jpg;,75,webp;6,C-C,228x228,1").into(img);
-        gridLayout.addView(img2);
+       // Glide.with(getContext()).load("http://bq-img.peco.uodoo.com/columbus/2015/uctest/466577d74d078c1ff91ce6918bfb9f85.jpg;,75,webp;6,C-C,228x228,1").into(img);
+       // gridLayout.addView(img2);
     }
 }

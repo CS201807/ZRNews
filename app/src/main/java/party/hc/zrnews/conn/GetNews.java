@@ -12,13 +12,15 @@ import party.hc.zrnews.bean.NewsBean;
  */
 
 public class GetNews {
-    private static String path = "http://115.159.205.152:8080/WebNews/DoArticle";
 
     //传入参数newsbean类型
+
     public static void getNews(List<NewsBean> newsBeanList,String data) throws JSONException {
 
+        String path = "http://115.159.205.152:8080/WebNews/DoMoreArticle";
+
         //发送http请求
-        String message = "article_type=" + data;
+        String message = "article_type=" + data +"&"+ "article_index=" + newsBeanList.size() + "&" + "article_num=" + 10;
         String str = HttpUtil.postHttpRequset(path,message);
         //获得返回数据
         JSONObject json = new JSONObject(str);
@@ -42,7 +44,7 @@ public class GetNews {
             else{
                 newsBean.setUiType("3");
             }
-           // newsBean.setUiType(temp.optString("ui_type"));
+            // newsBean.setUiType(temp.optString("ui_type"));
             newsBeanList.add(newsBean);
 
         }

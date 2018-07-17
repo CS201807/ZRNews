@@ -1,5 +1,6 @@
 package party.hc.zrnews;
 
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,15 +49,19 @@ import party.hc.zrnews.DB.NewsCache;
 import party.hc.zrnews.UI.CommentLine;
 import party.hc.zrnews.UI.MWebView;
 import party.hc.zrnews.bean.CommentBean;
+import party.hc.zrnews.bean.DetailBean;
 import party.hc.zrnews.bean.NewsBean;
+import party.hc.zrnews.conn.GetDetails;
 import party.hc.zrnews.conn.GetNews;
 import party.hc.zrnews.conn.HttpUtil;
+import party.hc.zrnews.conn.User;
 import party.hc.zrnews.tools.SerializeUtils;
 
 public class UrlReadActivity extends AppCompatActivity  {
     MWebView myWebView;
     String url;
     String dom;
+    DetailBean detailBean;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +70,7 @@ public class UrlReadActivity extends AppCompatActivity  {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String url=getIntent().getStringExtra("url");
+        final String url=getIntent().getStringExtra("url");
         //intent.putExtra("type","nojs");
         String type=getIntent().getStringExtra("type");
 
@@ -79,51 +86,22 @@ public class UrlReadActivity extends AppCompatActivity  {
         else {
             webSettings.setJavaScriptEnabled(true);//设置能够解析Javascript
         }
+        //
+
         //webSettings.setJavaScriptEnabled(true);//设置能够解析Javascript
 
         myWebView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                Init_pinglunqu();
-//                myWebView.loadUrl("javascript:\n" +
-//                        "var lastObj = document.getElementsByTagName(\"body\")[0].lastChild;\n" +
-//                        "//alert(lastObj.innerHTML);\n" +
-//                        "var p = document.createElement(\"ol\"); // 创建一个元素节点 \n" +
-//                        "p.innerHTML = '<li>万物生</li><li>荷塘月色</li>';\n" +
-//
-//                        "function insertAfter( newElement, targetElement ){ // newElement是要追加的元素 targetElement 是指定元素的位置 \n" +
-//                        "    var parent = targetElement.parentNode; // 找到指定元素的父节点 \n" +
-//                        "    if( parent.lastChild == targetElement ){ // 判断指定元素的是否是节点中的最后一个位置 如果是的话就直接使用appendChild方法 \n" +
-//                        "        parent.appendChild( newElement, targetElement ); \n" +
-//                        "    }else{ \n" +
-//                        "        parent.insertBefore( newElement, targetElement.nextSibling ); \n" +
-//                        "    }; \n" +
-//                        "};\n"+
-//                        "insertAfter(p,lastObj); // 因为js没有直接追加到指定元素后面的方法 所以要自己创建一个方法 \n" );
-//
-//                //view.loadUrl("javascript:alert(234567)");
+              new LoadDataThread().start();
+
             }
         });
 
         webSettings.setDomStorageEnabled(true);//设置适应Html5 //重点是这个设置
-//
-//        webSettings.setJavaScriptEnabled(true);
-//        webSettings.setDomStorageEnabled(true);
-//        webSettings.setLoadWithOverviewMode(true);
-//        webSettings.setUseWideViewPort(true);
-//        webSettings.setBuiltInZoomControls(true);
-//        webSettings.setDisplayZoomControls(false);
-//        webSettings.setSupportZoom(true);
-//        webSettings.setDefaultTextEncodingName("utf-8");
-        //String str = HttpUtil.postHttpRequset(url,"");
-       // myWebView.loadData(str, "text/html; charset=UTF-8", null
-        myWebView.loadUrl(url);
-        //View convertView = getLayoutInflater().inflate(R.layout.comment_line, myWebView, false);
-        //vh = new ViewHolder();
-       // convertView.setTag(vh);
 
-       // myWebView.addView (convertView,myWebView.);
+        myWebView.loadUrl(url);
 
         ImageButton jump_to_comment =(ImageButton)findViewById(R.id.comment_button);
         final ObservableScrollView scrollView=(ObservableScrollView)findViewById(R.id.viewObj);
@@ -133,19 +111,91 @@ public class UrlReadActivity extends AppCompatActivity  {
                 scrollView.scrollTo(0,myWebView.getMeasuredHeight());
             }
         });
+        final EditText editText=(EditText)findViewById(R.id.editText);
+        editText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+
+                if (i == KeyEvent.KEYCODE_ENTER&& keyEvent.getAction() == KeyEvent.ACTION_UP) {
+                  //detailBean;
+                   new commentThread().start();
+                }
+                return false;
+
+            }
+        });
     }
     void Init_pinglunqu(){
         LinearLayout layout = (LinearLayout) findViewById(R.id.content_layout);
-        for(int i=0;i<4;i++) {
+        layout.removeAllViews();
+        List<CommentBean> been= detailBean.getCbl();
+        for(int i=0;i<been.size();i++) {
 
             CommentLine view = new CommentLine(this);
-            view.init(new CommentBean());
+            view.init(been.get(i));
             layout.addView(view);
         }
         View view1=View.inflate(this,R.layout.comment_bottom,null);
         layout.addView(view1);
 
     }
+    private String result;
+    class commentThread extends  Thread{
+        @Override
+        public void run() {
+            final EditText editText=(EditText)findViewById(R.id.editText);
+            SharedPreferences editor = getSharedPreferences("userdata", MODE_PRIVATE);
+            String id=editor.getString("id",null);
+            User user=new User(id);
+            try {
+               result= user.addComment(detailBean,editText.getText().toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            handler.sendEmptyMessage(0x102);//通过handler发送一个更新数据的标记
+        }
+
+    }
+    class LoadDataThread extends  Thread{
+        @Override
+        public void run() {
+            String Id=getIntent().getStringExtra("id");
+            try {
+                detailBean= new DetailBean();
+                GetDetails.getDetails(Id,detailBean);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            handler.sendEmptyMessage(0x101);//通过handler发送一个更新数据的标记
+        }
+
+    }
+
+    /**
+     * 处理消息
+     */
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 0x101:
+                    Init_pinglunqu();
+                    break;
+                case 0x102:
+                    if(result.equals("false")){
+                        Toast.makeText(UrlReadActivity.this,"评论失败！",Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    Toast.makeText(UrlReadActivity.this,"评论成功！",Toast.LENGTH_SHORT).show();
+                    new LoadDataThread().start();
+                      break;
+            }
+        }
+    };
 
     @Override
     public void onPause() {

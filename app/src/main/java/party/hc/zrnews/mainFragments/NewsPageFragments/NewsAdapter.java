@@ -6,11 +6,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import party.hc.zrnews.R;
+import party.hc.zrnews.UI.SowingPics;
 import party.hc.zrnews.bean.Conponent_Style2;
 import party.hc.zrnews.bean.Conponent_Style5;
 import party.hc.zrnews.bean.NewsBean;
@@ -59,7 +61,15 @@ public class NewsAdapter extends BaseAdapter {
 //        holder.tvName.setText(data.get(i).getTitle());
 //        return v;
         View view1;
-
+        if(i<4){
+            if(i==3){
+            view1=new SowingPics(context,data.subList(0,4),null);
+            }
+            else {
+            view1=new View(context);
+            }
+        }
+        else
         if(data.get(i).getUiType().equals("1")){
             view1=new Conponent_Style5(context,data.get(i), null);
         }

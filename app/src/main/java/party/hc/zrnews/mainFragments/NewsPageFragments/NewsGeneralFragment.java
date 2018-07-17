@@ -49,7 +49,7 @@ public class NewsGeneralFragment extends NewsBFragment {
     }
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.page_news_general,null);
         newsList=new MArrayList<>();
         initData();
@@ -63,6 +63,7 @@ public class NewsGeneralFragment extends NewsBFragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(),UrlReadActivity.class);
                 intent.putExtra("url",newsList.get(i).getUrl());
+                intent.putExtra("id",newsList.get(i).getId());
                 intent.putExtra("type","nojs");
                 getContext().startActivity(intent);
             }
@@ -98,7 +99,7 @@ public class NewsGeneralFragment extends NewsBFragment {
         NewsCache cache=new NewsCache(getContext());
 
         try {
-            newsList= (ArrayList<NewsBean>) SerializeUtils.serializeToObject(cache.getReadPageIndexByURL(title));
+            newsList= (MArrayList<NewsBean>) SerializeUtils.serializeToObject(cache.getReadPageIndexByURL(title));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -129,7 +130,7 @@ public class NewsGeneralFragment extends NewsBFragment {
                 NewsCache cache=new NewsCache(getContext());
                 //添加缓存功能
                 try {
-                    List<NewsBean> subList=new ArrayList<>();
+                    List<NewsBean> subList=new MArrayList<>();
                     subList.addAll( newsList.subList(0,10));
                     String s=SerializeUtils.serialize(subList);
                     if(cache.checkByKey(title)){

@@ -36,7 +36,6 @@
             android:layout_height="match_parent">
             <!-- Webview and footer programatically added here -->
             <LinearLayout
-                android:id="@+id/content_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -49,6 +48,12 @@
                     >
 
                 </party.hc.zrnews.UI.MWebView>
+
+                <LinearLayout
+                    android:id="@+id/content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"></LinearLayout>
 
             </LinearLayout>
         </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>

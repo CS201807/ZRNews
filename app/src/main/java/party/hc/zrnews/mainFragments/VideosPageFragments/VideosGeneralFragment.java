@@ -66,6 +66,9 @@ public class VideosGeneralFragment  extends VideosBFragment{
                 Intent intent = new Intent(getContext(),UrlReadActivity.class);
                 intent.putExtra("url",newsList.get(i).getUrl());
                 intent.putExtra("type","js");
+                //TODO:添加视频评论功能
+
+            //    intent.putExtra("id",newsList.get(i).getId());
                 getContext().startActivity(intent);
             }
         });
@@ -94,7 +97,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
         NewsCache cache=new NewsCache(getContext());
 
         try {
-            newsList= (ArrayList<VideoBean>) SerializeUtils.serializeToObject(cache.getReadPageIndexByURL("V"+title));
+            newsList= (MArrayList<VideoBean>) SerializeUtils.serializeToObject(cache.getReadPageIndexByURL("V"+title));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -123,7 +126,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
                 //添加缓存功能
                 NewsCache cache=new NewsCache(getContext());
                 try {
-                    List<VideoBean> subList=new ArrayList<>();
+                    List<VideoBean> subList=new MArrayList<>();
                     subList.addAll( newsList.subList(0,4));
                     String s= SerializeUtils.serialize(subList);
                     if(cache.checkByKey("V"+title)){
