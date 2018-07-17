@@ -63,6 +63,7 @@ public class NewsGeneralFragment extends NewsBFragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(),UrlReadActivity.class);
                 intent.putExtra("url",newsList.get(i).getUrl());
+                intent.putExtra("type","nojs");
                 getContext().startActivity(intent);
             }
         });

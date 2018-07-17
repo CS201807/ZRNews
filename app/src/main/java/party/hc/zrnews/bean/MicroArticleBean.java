@@ -54,4 +54,13 @@ public class MicroArticleBean {
     private String userName;
     private String Time;
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
 }
