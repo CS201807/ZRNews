@@ -19,11 +19,11 @@ import party.hc.zrnews.bean.DetailBean;
 public class GetDetails {
 
     public static void getDetails(String string, DetailBean detailBean)  throws JSONException{
+        String data = "article_id=" + string;
         String path = "http://115.159.205.152:8080/WebNews/queryCommentContent";
-        String str = HttpUtil.postHttpRequset(path,string);//地址，新闻id
+        String str = HttpUtil.postHttpRequset(path,data);//地址，新闻id
 
         JSONObject json = new JSONObject(str);
-        String likeNum = json.getString("num_like");
         JSONArray array = json.getJSONArray("data");
         List<CommentBean> commentBeanList = new ArrayList<>();
 
