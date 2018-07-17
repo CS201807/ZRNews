@@ -27,9 +27,6 @@ public class SplashActivity extends AppCompatActivity {
                             LoginActivity.class);
                 }
 
-                System.out.println(preferences.getBoolean("logged",false));
-                System.out.println(preferences.getString("name","undefine"));
-
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
             }
