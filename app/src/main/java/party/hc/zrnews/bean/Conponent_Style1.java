@@ -23,7 +23,7 @@ public class Conponent_Style1 extends RelativeLayout{
         // 获取控件
         TextView CS1_title = findViewById(R.id.CS1_title);
         ImageView CS1_pic = findViewById(R.id.CS1_pic);
-        TextView CS1_text =findViewById(R.id.CS1_title);
+        TextView CS1_text =findViewById(R.id.CS1_text);
 
         CS1_title.setText(title);
         CS1_text.setText(text1+" | "+text2);

@@ -11,19 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import party.hc.zrnews.MainActivity;
-import party.hc.zrnews.NewsReadActivity;
+import party.hc.zrnews.DB.NewsCache;
+import party.hc.zrnews.UrlReadActivity;
 import party.hc.zrnews.R;
 import party.hc.zrnews.bean.NewsBean;
 import party.hc.zrnews.conn.GetNews;
 import party.hc.zrnews.tools.MArrayList;
+import party.hc.zrnews.tools.SerializeUtils;
 
 /**
  * Created by ubuntu on 18-7-13.
@@ -52,6 +53,7 @@ public class NewsGeneralFragment extends NewsBFragment {
         View view =inflater.inflate(R.layout.page_news_general,null);
         newsList=new MArrayList<>();
         initData();
+
         //listview
         ListView listView=(ListView) view.findViewById(R.id.listView1);
         myAdapter=new NewsAdapter(getContext(),newsList);
@@ -59,7 +61,7 @@ public class NewsGeneralFragment extends NewsBFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getContext(),NewsReadActivity.class);
+                Intent intent = new Intent(getContext(),UrlReadActivity.class);
                 intent.putExtra("url",newsList.get(i).getUrl());
                 getContext().startActivity(intent);
             }
@@ -88,9 +90,18 @@ public class NewsGeneralFragment extends NewsBFragment {
      * 初始化数据
      */
     private void  initData(){
-        for(int i=0;i<10;i++){
+//        for(int i=0;i<10;i++){
+//
+//            newsList.add(new NewsBean());
+//        }
+        NewsCache cache=new NewsCache(getContext());
 
-            newsList.add(new NewsBean());
+        try {
+            newsList= (ArrayList<NewsBean>) SerializeUtils.serializeToObject(cache.getReadPageIndexByURL(title));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
     }
@@ -101,6 +112,7 @@ public class NewsGeneralFragment extends NewsBFragment {
         @Override
         public void run() {
             initData();
+
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
@@ -112,7 +124,21 @@ public class NewsGeneralFragment extends NewsBFragment {
         private void initData() {
             GetNews news=new GetNews();
             try {
-                news.getNews(newsList,"头条");
+                news.getNews(newsList,title);
+                NewsCache cache=new NewsCache(getContext());
+                //添加缓存功能
+                try {
+                    List<NewsBean> subList=new ArrayList<>();
+                    subList.addAll( newsList.subList(0,10));
+                    String s=SerializeUtils.serialize(subList);
+                    if(cache.checkByKey(title)){
+                    cache.updateValue(title,s);
+                    }else {
+                        cache.insert(title,s);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

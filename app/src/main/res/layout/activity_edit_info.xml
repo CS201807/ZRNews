@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditInfoActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+
+                android:background="#66ccff"
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="编辑资料"/>
+        </LinearLayout>
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="Suspicious0dp">
+            <LinearLayout
+                android:background="#66ccff"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:text="头像设置"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/go"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="Suspicious0dp">
+            <LinearLayout
+                android:background="#66ccff"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:text="用户名"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/go"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="Suspicious0dp">
+            <LinearLayout
+                android:background="#66ccff"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:text="密码"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/go"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="Suspicious0dp">
+            <LinearLayout
+                android:background="#66ccff"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:text="性别"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/go"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="Suspicious0dp">
+            <LinearLayout
+                android:background="#66ccff"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:text="生日"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+                <Button
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/go"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <fragment
+        android:id="@+id/frg4"
+        android:name="party.hc.zrnews.UI.BackFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/back" />
+</FrameLayout>

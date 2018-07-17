@@ -1,10 +1,12 @@
 package party.hc.zrnews.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by QY on 2018/7/16.
  */
 
-public class VideoBean {
+public class VideoBean implements Serializable {
 
     private String title;
     private String url;
