@@ -33,7 +33,7 @@ public class Sign {
         }
     }
 
-    public String signUp(String phone, String username,String psw) throws JSONException {
+    public static String signUp(String phone, String username,String psw) throws JSONException {
         String data = "phone=" + phone + "&" + "username=" + username + "&" + "password=" + psw + "&" + "sex=" + "" + "&" + "birthday=" + "" ;
         String path = "http://115.159.205.152:8080/WebNews/SignUp";
 
