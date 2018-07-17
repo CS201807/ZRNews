@@ -19,10 +19,11 @@ import party.hc.zrnews.bean.DetailBean;
 public class GetDetails {
 
     public static void getDetails(String string, DetailBean detailBean)  throws JSONException{
-        String path = "http://115.159.205.152:8080/WebNews/commentRequest.jsp";
+        String path = "http://115.159.205.152:8080/WebNews/queryCommentContent";
         String str = HttpUtil.postHttpRequset(path,string);//地址，新闻id
 
         JSONObject json = new JSONObject(str);
+        String likeNum = json.getString("num_like");
         JSONArray array = json.getJSONArray("data");
         List<CommentBean> commentBeanList = new ArrayList<>();
 
@@ -31,42 +32,29 @@ public class GetDetails {
             CommentBean cb = new CommentBean();
             cb.setUserId(temp.optString("userid"));
             cb.setUserName(temp.optString("username"));
+            cb.setAvatar(temp.optString("avatar"));
             cb.setDate(temp.optString("comment_date"));
             cb.setComment(temp.optString("comment_content"));
-            cb.setAvatar(temp.optString("avatar"));
+
             commentBeanList.add(cb);
         }
         detailBean.setNewsId(string);
         detailBean.setCbl(commentBeanList);
     }
 
-    public static boolean like(String newsId,String userId) throws JSONException{
-        String data = "newsId=" + newsId + "&" + "userId=" +userId;
-        String path = "";
+    public static boolean getLikeNum(DetailBean detailBean) throws JSONException {
+        String data = detailBean.getNewsId();
+        String path = "http://115.159.205.152:8080/WebNews/DoLikeNum";
 
-        String str = HttpUtil.postHttpRequset(path,data);
+        String str = HttpUtil.postHttpRequset(path, data);
         JSONObject json = new JSONObject(str);
-        String result = json.getJSONObject("result").toString();
-        if (result.equals("OK")) {
+        String result = json.getString("result");
+        if (result.equals("true")) {
+            detailBean.setLikeNum(json.getString("num_like"));
             return true;
         } else {
             return false;
         }
-    }
-
-    public static boolean addComment(String newsId,String userId,String message ) throws JSONException{
-        String data = "newsId=" + newsId + "&" + "userId=" +userId + "&" + "message=" + message;
-        String path = "";
-
-        String str = HttpUtil.postHttpRequset(path,data);
-        JSONObject json = new JSONObject(str);
-        String result = json.getJSONObject("result").toString();
-        if (result.equals("OK")) {
-            return true;
-        } else {
-            return false;
-        }
-
     }
 
 }

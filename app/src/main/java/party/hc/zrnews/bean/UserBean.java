@@ -11,7 +11,9 @@ public class UserBean {
     private String avatar;
     private String followers;
     private String focus;
-    private String phoneNum;
+    private String phone;
+    private String sex;
+    private String birthday;
 
     public String getId() {
         return id;
@@ -25,8 +27,8 @@ public class UserBean {
         return avatar;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getPhone() {
+        return phone;
     }
 
     public String getFollowers() {
@@ -35,6 +37,14 @@ public class UserBean {
 
     public String getFocus() {
         return focus;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
     }
 
     public void setId(String id) {
@@ -49,8 +59,8 @@ public class UserBean {
         this.avatar = avatar;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setFollowers(String followers) {
@@ -59,5 +69,13 @@ public class UserBean {
 
     public void setFocus(String focus) {
         this.focus = focus;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }

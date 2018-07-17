@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import party.hc.zrnews.bean.DetailBean;
 import party.hc.zrnews.bean.NewsBean;
 import party.hc.zrnews.bean.UserBean;
 
@@ -71,6 +72,35 @@ public class User {
             newsBeanList.add(newsBean);
 
         }
+    }
+
+    public boolean likeThis(DetailBean detailBean) throws JSONException{
+        String data = "newsId=" + detailBean.getNewsId() + "&" + "userId=" +USER_ID;
+        String path = "http://115.159.205.152:8080/WebNews/DoLike";
+
+        String str = HttpUtil.postHttpRequset(path,data);
+        JSONObject json = new JSONObject(str);
+        String result = json.getJSONObject("result").toString();
+        if (result.equals("true")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean addComment(DetailBean detailBean,String message ) throws JSONException{
+        String data = "newsId=" + detailBean.getNewsId() + "&" + "userId=" +USER_ID + "&" + "message=" + message;
+        String path = "http://115.159.205.152:8080/WebNews/DoComment";
+
+        String str = HttpUtil.postHttpRequset(path,data);
+        JSONObject json = new JSONObject(str);
+        String result = json.getJSONObject("result").toString();
+        if (result.equals("true")) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }
