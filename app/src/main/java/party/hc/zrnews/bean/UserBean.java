@@ -9,6 +9,8 @@ public class UserBean {
     private String id;
     private String name;
     private String avatar;
+    private String followers;
+    private String focus;
     private String phoneNum;
 
     public String getId() {
@@ -27,6 +29,14 @@ public class UserBean {
         return phoneNum;
     }
 
+    public String getFollowers() {
+        return followers;
+    }
+
+    public String getFocus() {
+        return focus;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -41,5 +51,13 @@ public class UserBean {
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public void setFollowers(String followers) {
+        this.followers = followers;
+    }
+
+    public void setFocus(String focus) {
+        this.focus = focus;
     }
 }

@@ -18,9 +18,7 @@ public class GetNews {
     public static void getNews(List<NewsBean> newsBeanList,String data) throws JSONException {
 
         //发送http请求
-        String message = "article_type=";
-        message += data;
-
+        String message = "article_type=" + data;
         String str = HttpUtil.postHttpRequset(path,message);
         //获得返回数据
         JSONObject json = new JSONObject(str);
