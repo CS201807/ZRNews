@@ -28,8 +28,8 @@ public class SelfFragment extends BFragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=View.inflate(getContext(), R.layout.page_self,null);
 
+        View view=View.inflate(getContext(), R.layout.page_self,null);
         Button go=view.findViewById(R.id.go);
         go.setOnClickListener(new View.OnClickListener() {
             @Override

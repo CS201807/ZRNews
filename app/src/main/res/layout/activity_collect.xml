@@ -33,7 +33,7 @@
             <party.hc.zrnews.UI.SearchEditText
                 android:textColor="#b3a2a2"
                 android:textSize="20dp"
-                android:text="搜索你的收藏"
+                android:hint="搜索你的收藏"
                 android:id="@+id/edit_search"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"

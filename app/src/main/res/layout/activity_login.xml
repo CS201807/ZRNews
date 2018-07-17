@@ -50,7 +50,7 @@
         android:layout_marginEnd="32dp">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/login_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -79,7 +79,7 @@
         android:layout_marginEnd="32dp">
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/login_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
