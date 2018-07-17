@@ -81,7 +81,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("phoneNum", ub.getPhone());
                     editor.putString("followers", ub.getFollowers());
                     editor.putString("focus", ub.getFocus());
-                    editor.apply();
+                    editor.putBoolean("logged",true);
+                    editor.commit();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

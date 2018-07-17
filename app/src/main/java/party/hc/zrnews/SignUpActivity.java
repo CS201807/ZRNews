@@ -1,5 +1,7 @@
 package party.hc.zrnews;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +20,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText fakeNameTextView;
     private EditText phoneNumberTextView;
     private Button logupButton;
+    Handler handler;
+    String result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +29,28 @@ public class SignUpActivity extends AppCompatActivity {
         Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        userNameTextView=(EditText) findViewById(R.id.logon_account);
+        userNameTextView=(EditText) findViewById(R.id.logon_username);
         passwrodTextView=(EditText)findViewById(R.id.logon_password);
-        phoneNumberTextView=(EditText)findViewById(R.id.editText4);
+        phoneNumberTextView=(EditText)findViewById(R.id.logon_account);
         logupButton=(Button)findViewById(R.id.sign_commit);
-
+        handler=new Handler(){
+            public void handleMessage(Message msg) {
+                switch (msg.what){
+                    case 1:
+                        Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
         logupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 new Thread(signUp).start();
 
@@ -40,17 +58,21 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    Runnable signUp = new Runnable() {
+    final Runnable signUp = new Runnable() {
         public void run() {
             try {
                 String result;
                 result=Sign.signUp(phoneNumberTextView.getText().toString(),passwrodTextView.getText().toString(),userNameTextView.getText().toString());
                 if(result.equals("OK")){
-                    Toast.makeText(getApplicationContext(),"注册成功",Toast.LENGTH_SHORT).show();
+                    Message message = new Message();
+                    message.what = 1;
+                    handler.sendMessage(message);
                     finish();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+                    Message message = new Message();
+                    message.what = 2;
+                    handler.sendMessage(message);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -1,6 +1,7 @@
 package party.hc.zrnews;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -14,8 +15,21 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         new android.os.Handler().postDelayed(new Runnable() {
             public void run() {
-                Intent mainIntent = new Intent(SplashActivity.this,
-                        LoginActivity.class);
+                Intent mainIntent;
+                SharedPreferences preferences=getSharedPreferences("userdata",MODE_PRIVATE);
+                if(preferences.getBoolean("logged",false))
+                {
+                    mainIntent = new Intent(SplashActivity.this,
+                            MainActivity.class);
+                }
+                else {
+                    mainIntent = new Intent(SplashActivity.this,
+                            LoginActivity.class);
+                }
+
+                System.out.println(preferences.getBoolean("logged",false));
+                System.out.println(preferences.getString("name","undefine"));
+
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
             }

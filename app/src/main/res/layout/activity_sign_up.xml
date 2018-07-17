@@ -54,12 +54,12 @@
         app:layout_constraintHorizontal_bias="0.0">
 
         <EditText
-            android:id="@+id/logon_account"
+            android:id="@+id/logon_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="请输入用户名"
-            android:drawableLeft="@drawable/me1"
+            android:hint="手机号"
+            android:drawableLeft="@drawable/phone_number"
             android:ems="10"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="84dp"
@@ -100,15 +100,16 @@
 
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/logon_account"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:drawableLeft="@drawable/phone_number"
-        android:hint="手机号"
+        android:drawableLeft="@drawable/me1"
+
+        android:hint="请输入用户名"
         android:inputType="textPersonName"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
