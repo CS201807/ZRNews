@@ -45,10 +45,10 @@ public class PassWordActivity extends AppCompatActivity {
         preferences=getSharedPreferences("userdata",MODE_PRIVATE);
         editor = getSharedPreferences("userdata", MODE_PRIVATE).edit();
 
-        TextView pre_pwd=findViewById(R.id.pre_pwd);
-        TextView new_pwd=findViewById(R.id.new_pwd);
-        TextView double_pwd=findViewById(R.id.double_pwd);
-        ProgressBar progressBar=findViewById(R.id.pro);
+        final TextView pre_pwd=findViewById(R.id.pre_pwd);
+        final TextView new_pwd=findViewById(R.id.new_pwd);
+        final TextView double_pwd=findViewById(R.id.double_pwd);
+        final ProgressBar progressBar=findViewById(R.id.pro);
         Button saveChange=findViewById(R.id.save_change);
         saveChange.setOnClickListener(new View.OnClickListener() {
             @Override

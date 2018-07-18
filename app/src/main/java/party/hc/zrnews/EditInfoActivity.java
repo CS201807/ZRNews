@@ -57,7 +57,7 @@ public class EditInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
         SharedPreferences preferences=getSharedPreferences("userdata",MODE_PRIVATE);
-        SharedPreferences.Editor editor = getSharedPreferences("userdata", MODE_PRIVATE).edit();
+        final SharedPreferences.Editor editor = getSharedPreferences("userdata", MODE_PRIVATE).edit();
         try {
             ub= (UserBean) SerializeUtils.serializeToObject(preferences.getString("bean",""));
         } catch (IOException e) {
@@ -100,7 +100,7 @@ public class EditInfoActivity extends AppCompatActivity {
             }
         });
 
-        EditText username= (EditText) findViewById(R.id.edit_username);
+        final EditText username= (EditText) findViewById(R.id.edit_username);
         username.setText(preferences.getString("name","最热新闻"));
 
 
@@ -139,7 +139,7 @@ public class EditInfoActivity extends AppCompatActivity {
         });
         Button birth= findViewById(R.id.birth);
 
-        TextView birthday= findViewById(R.id.birthday);
+        final TextView birthday= findViewById(R.id.birthday);
         birthday.setText(preferences.getString("birthday",""));
         birthdata=preferences.getString("birthday","");
 //        SimpleDateFormat sdf = new SimpleDateFormat( " yyyy-MM-dd" );

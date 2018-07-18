@@ -21,7 +21,7 @@ public class SuggestionActivity extends AppCompatActivity {
             }
         });
 
-        EditText suggest=findViewById(R.id.suggestion);
+        final EditText suggest=findViewById(R.id.suggestion);
         Button commit=findViewById(R.id.suggest_commit);
         commit.setOnClickListener(new View.OnClickListener() {
             @Override
