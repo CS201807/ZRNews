@@ -46,5 +46,49 @@ public class Sign {
             return json.getString("reason");
         }
     }
+
+    public static boolean UpdateUserInfo(UserBean userBean,String username,String sex,String birthday)throws JSONException{
+
+         if (username.equals(""))
+             username = userBean.getName();
+         if (sex.equals(""))
+             sex = userBean.getSex();
+         if (birthday.equals(""))
+             birthday = userBean.getBirthday();
+
+        String data = "user_id=" + userBean.getId() +"&"+ "username=" + username +"&"+
+                "type=" + "normal" +"&"+ "sex=" + sex +"&"+ "birthday=" +birthday;
+        String path = "http://115.159.205.152:8080/WebNews/UpdateUserInfo";
+
+        String str = HttpUtil.postHttpRequset(path, data);
+        JSONObject json = new JSONObject(str);
+        String status = json.getString("status");
+        if (status.equals("true")) {
+//            userBean.setId(json.getString("id"));
+            userBean.setName(json.getString("username"));
+//            userBean.setAvatar(json.getString("avatar"));
+//            userBean.setFollowers(json.getString("followers"));
+//            userBean.setFocus(json.getString("focus"));
+            userBean.setSex(json.getString("sex"));
+            userBean.setBirthday(json.getString("birthday"));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean UpdatePassword(UserBean userBean,String oldPsw,String newPsw)throws JSONException{
+
+        String data = "user_id=" + userBean.getId() +"&"+ "type=" + "password" +"&"+ "origin_password=" + oldPsw +"&"+ "new_password=" +newPsw;
+        String path = "http://115.159.205.152:8080/WebNews/UpdateUserInfo";
+
+        String str = HttpUtil.postHttpRequset(path, data);
+        JSONObject json = new JSONObject(str);
+        String status = json.getString("status");
+        if (status.equals("true")){
+            return true;
+        }else
+            return false;
+    }
 }
 
