@@ -4,7 +4,6 @@
     <!-- Non focused states -->
     <item android:state_focused="false" android:state_pressed="false" android:state_selected="false" android:color="@color/colorIndicatorTextBase"/>
     <item android:state_focused="false" android:state_pressed="false" android:state_selected="true" android:color="@color/colorIndicatorTextSelected"/>
-0
     <!-- Focused states -->
     <item android:state_focused="true" android:state_pressed="false" android:state_selected="false" android:color="@color/colorIndicatorTextBase"/>
     <item android:state_focused="true" android:state_pressed="false" android:state_selected="true" android:color="@color/colorIndicatorTextSelected"/>
