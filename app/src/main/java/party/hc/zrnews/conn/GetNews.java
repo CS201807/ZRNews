@@ -1,9 +1,12 @@
 package party.hc.zrnews.conn;
 
+import android.widget.RadioGroup;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.List;
+import java.util.Random;
 
 import party.hc.zrnews.bean.NewsBean;
 
@@ -42,7 +45,10 @@ public class GetNews {
                 newsBean.setUiType("1");
             }
             else{
-                newsBean.setUiType("3");
+                if(Math.random()>0.2)
+                    newsBean.setUiType("3");
+                else
+                    newsBean.setUiType("1");
             }
             // newsBean.setUiType(temp.optString("ui_type"));
             newsBeanList.add(newsBean);

@@ -18,8 +18,7 @@
 
             android:ems="10"
             android:hint="发表评论..."
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="textPersonName" />
 
         <ImageButton
             android:id="@+id/comment_button"
@@ -31,7 +30,7 @@
             android:text="Button" />
 
         <ImageButton
-            android:id="@+id/button2"
+            android:id="@+id/add_to_C"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -40,7 +39,7 @@
             android:text="Button" />
 
         <ImageButton
-            android:id="@+id/button3"
+            android:id="@+id/share"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -12,12 +12,14 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import party.hc.zrnews.R;
 import party.hc.zrnews.UrlReadActivity;
 import party.hc.zrnews.bean.NewsBean;
+import party.hc.zrnews.tools.SerializeUtils;
 
 /**
  * Created by ubuntu on 18-7-13.
@@ -54,9 +56,15 @@ public class SowingPics extends LinearLayout {
        banner.setOnBannerListener(new OnBannerListener() {
            @Override
            public void OnBannerClick(int position) {
-               Toast.makeText(context, "你点击了：" + position, Toast.LENGTH_SHORT).show();
+               //Toast.makeText(context, "你点击了：" + position, Toast.LENGTH_SHORT).show();
                Intent intent = new Intent(getContext(),UrlReadActivity.class);
                intent.putExtra("url",news.get(position).getUrl());
+               intent.putExtra("id",news.get(position).getId());
+               try {
+                   intent.putExtra("bean", SerializeUtils.serialize(news.get(position)));
+               } catch (IOException e) {
+                   e.printStackTrace();
+               }
                intent.putExtra("type","nojs");
                getContext().startActivity(intent);
            }

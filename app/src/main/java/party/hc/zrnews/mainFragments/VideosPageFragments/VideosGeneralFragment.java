@@ -127,7 +127,7 @@ public class VideosGeneralFragment  extends VideosBFragment{
                 NewsCache cache=new NewsCache(getContext());
                 try {
                     List<VideoBean> subList=new MArrayList<>();
-                    subList.addAll( newsList.subList(0,4));
+                    subList.addAll( newsList.subList(newsList.size()-4,newsList.size()));
                     String s= SerializeUtils.serialize(subList);
                     if(cache.checkByKey("V"+title)){
                         cache.updateValue("V"+title,s);

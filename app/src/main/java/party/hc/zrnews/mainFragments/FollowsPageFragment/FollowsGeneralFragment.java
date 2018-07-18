@@ -70,6 +70,11 @@ public class FollowsGeneralFragment extends FollowsBFragment {
                 Intent intent = new Intent(getContext(), UrlReadActivity.class);
                 intent.putExtra("url", newsList.get(i).getUrl());
                 intent.putExtra("id", newsList.get(i).getId());
+                try {
+                    intent.putExtra("bean",SerializeUtils.serialize(newsList.get(i)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 intent.putExtra("type", "nojs");
                 getContext().startActivity(intent);
             }
@@ -138,7 +143,7 @@ public class FollowsGeneralFragment extends FollowsBFragment {
                 //添加缓存功能
                 try {
                     List<NewsBean> subList = new MArrayList<>();
-                    subList.addAll(newsList.subList(0, 10));
+                    subList.addAll(newsList.subList(newsList.size()-10,newsList.size()));
                     String s = SerializeUtils.serialize(subList);
                     if (cache.checkByKey("F"+title)) {
                         cache.updateValue("F"+title, s);

@@ -53,8 +53,7 @@ public class Bottom_comment_box extends LinearLayout{
         LayoutInflater.from(getContext()).inflate(R.layout.bottom_comment_box,this,true);
         EditText comment_editText=findViewById(R.id.editText);
         ImageButton jumpToCommentButton=findViewById(R.id.comment_button);
-        ImageButton starButton=findViewById(R.id.button2);
-        ImageButton shareButton=findViewById(R.id.button3);
+
 
     }
 }
