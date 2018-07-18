@@ -23,15 +23,24 @@
             android:orientation="horizontal">
 
 
-            <party.hc.zrnews.UI.BitmapShaders
+            <!--<party.hc.zrnews.UI.BitmapShaders-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:id="@+id/bs"-->
+                <!--android:layout_width="180dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--/>-->
+            <ImageView
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/bs"
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
+                android:id="@+id/iv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 />
 
             <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/self_username"
                 android:textSize="20dp"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -41,7 +50,6 @@
                 android:textColor="#fff" />
 
             <Button
-
                 android:id="@+id/go"
                 android:layout_marginRight="10dp"
                 android:background="@null"

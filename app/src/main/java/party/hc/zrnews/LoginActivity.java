@@ -14,8 +14,11 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 
+import java.io.IOException;
+
 import party.hc.zrnews.bean.UserBean;
 import party.hc.zrnews.conn.Sign;
+import party.hc.zrnews.tools.SerializeUtils;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText userNameTextView;
@@ -82,7 +85,14 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("followers", ub.getFollowers());
                     editor.putString("focus", ub.getFocus());
                     editor.putBoolean("logged",true);
-                    editor.commit();
+                    editor.putString("birthday",ub.getBirthday());
+                    editor.putString("sex",ub.getSex());
+                    try {
+                        editor.putString("bean", SerializeUtils.serialize(ub));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    editor.apply();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

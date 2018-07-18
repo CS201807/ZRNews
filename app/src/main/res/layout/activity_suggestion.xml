@@ -28,9 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp">
             <EditText
+                android:id="@+id/suggestion"
+                android:hint="请描述您遇到的问题"
                 android:textColor="#c6bbbb"
                 android:gravity="top"
-                android:text="请描述您遇到的问题"
                 android:background="#fff"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
@@ -38,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
             <Button
+                android:id="@+id/suggest_commit"
                 android:text="提交"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"

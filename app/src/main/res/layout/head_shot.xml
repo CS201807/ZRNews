@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <party.hc.zrnews.UI.BitmapShaders
+
+    <ImageView
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:id="@+id/head"
-        android:layout_width="200dp"
-        android:layout_height="match_parent" />
+        android:id="@+id/head_frg"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
 
 </LinearLayout>

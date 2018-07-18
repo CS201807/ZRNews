@@ -1,10 +1,12 @@
 package party.hc.zrnews.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by QY on 2018/7/13.
  */
 
-public class UserBean {
+public class UserBean implements Serializable{
 
     private String id;
     private String name;

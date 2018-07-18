@@ -5,16 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".EditInfoActivity">
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
             <TextView
-
                 android:background="#66ccff"
                 android:textSize="20dp"
                 android:textColor="#fff"
@@ -23,57 +22,23 @@
                 android:layout_height="70dp"
                 android:text="编辑资料"/>
         </LinearLayout>
-        <LinearLayout
 
+
+        <LinearLayout
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             tools:ignore="Suspicious0dp">
             <LinearLayout
-                android:background="#66ccff"
+                android:background="#f6f7f9"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="10dp"
                     android:gravity="center|left"
                     android:textSize="20dp"
-                    android:textColor="#fff"
-                    android:background="@null"
-                    android:layout_weight="1"
-                    android:text="手机号码"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp" />
-                <LinearLayout
-                    android:layout_weight="3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-                    <EditText
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="#fff"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            tools:ignore="Suspicious0dp">
-            <LinearLayout
-                android:background="#66ccff"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-                <TextView
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center|left"
-                    android:textSize="20dp"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:background="@null"
                     android:layout_weight="1"
                     android:text="用户名"
@@ -84,6 +49,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
                     <EditText
+                        android:id="@+id/edit_username"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginBottom="5dp"
@@ -100,14 +66,14 @@
             android:layout_height="0dp"
             tools:ignore="Suspicious0dp">
             <LinearLayout
-                android:background="#66ccff"
+                android:background="#f6f7f9"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="10dp"
                     android:gravity="center|left"
                     android:textSize="20dp"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:background="@null"
                     android:layout_weight="1"
                     android:text="密码"
@@ -131,14 +97,14 @@
             android:layout_height="0dp"
             tools:ignore="Suspicious0dp">
             <LinearLayout
-                android:background="#66ccff"
+                android:background="#f6f7f9"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="10dp"
                     android:gravity="center|left"
                     android:textSize="20dp"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:background="@null"
                     android:layout_weight="1"
                     android:text="性别"
@@ -146,19 +112,29 @@
                     android:layout_height="50dp" />
 
                 <RadioGroup
+                    android:id="@+id/r_g"
                     android:orientation="horizontal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
                     <RadioButton
-                        android:textColor="#fff"
+                        android:id="@+id/rb_m"
+                        android:textColor="#464c56"
                         android:text="男"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
                     <RadioButton
-                        android:textColor="#fff"
+                        android:id="@+id/rb_w"
+                        android:textColor="#000"
                         android:text="女"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" />
+                    <RadioButton
+                        android:id="@+id/rb_s"
+                        android:textColor="#000"
+                        android:text="保密"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
@@ -166,44 +142,58 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-
+            android:layout_marginBottom="200dp"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             tools:ignore="Suspicious0dp">
             <LinearLayout
-                android:background="#66ccff"
+                android:background="#f6f7f9"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <TextView
                     android:layout_marginLeft="10dp"
                     android:gravity="center|left"
                     android:textSize="20dp"
-                    android:textColor="#fff"
+                    android:textColor="#000"
                     android:background="@null"
                     android:layout_weight="1"
                     android:text="生日"
                     android:layout_width="0dp"
                     android:layout_height="50dp" />
-                <ScrollView
-                    android:layout_weight="5"
+                <TextView
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:id="@+id/birthday"
+                    android:layout_weight="3"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    </LinearLayout>
-                </ScrollView>
+                    android:layout_height="match_parent" />
+                <Button
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/birth"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/go"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp" />
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
     <fragment
+        android:layout_marginTop="10dp"
         android:id="@+id/frg4"
         android:name="party.hc.zrnews.UI.BackFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/back" />
+    <fragment
+        android:layout_marginTop="10dp"
+        android:id="@+id/frg5"
+        android:name="party.hc.zrnews.UI.SaveFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/save" />
 </FrameLayout>

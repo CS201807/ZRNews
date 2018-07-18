@@ -53,27 +53,28 @@
             android:layout_width="match_parent"
             android:layout_height="30dp">
             <TextView
+                android:id="@+id/self_name"
                 android:gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:text="name"/>
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp">
-            <Button
+            <TextView
+                android:id="@+id/focus"
                 android:layout_marginLeft="20dp"
                 android:background="@null"
                 android:textSize="10dp"
-                android:text="0 关注"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:textColor="#ff00ff"/>
-            <Button
+            <TextView
+                android:id="@+id/followers"
                 android:background="@null"
                 android:textSize="10dp"
-                android:text="0 粉丝"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:textColor="#ff9999"/>
@@ -104,7 +105,7 @@
     <fragment
         android:id="@+id/head"
         android:name="party.hc.zrnews.UI.HeadFragment"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         tools:layout="@layout/head_shot" />
 </FrameLayout>

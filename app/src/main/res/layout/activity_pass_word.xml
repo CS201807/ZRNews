@@ -29,22 +29,34 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/pre_pwd"
                 android:hint="请输入原密码"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
             <EditText
+                android:inputType="textPassword"
+                android:id="@+id/new_pwd"
                 android:hint="请输入新密码"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
             <EditText
+                android:inputType="textPassword"
+                android:id="@+id/double_pwd"
                 android:hint="请再次输入新密码"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
         </LinearLayout>
+        <ProgressBar
+            android:id="@+id/pro"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
         <Button
+            android:id="@+id/save_change"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:textSize="20dp"
@@ -55,10 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" />
     </LinearLayout>
-
-
     <fragment
-        android:id="@+id/frg4"
+        android:id="@+id/frg6"
         android:name="party.hc.zrnews.UI.BackFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

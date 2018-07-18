@@ -40,4 +40,9 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@drawable/viewpager_title_textcolor</item>
     </style>
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorPrimary">@color/birthday</item>
+        <item name="android:colorPrimaryDark">@color/birthday</item>
+        <item name="android:colorAccent">@color/birthday</item>
+    </style>
 </resources>
