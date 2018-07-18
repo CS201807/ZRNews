@@ -23,6 +23,7 @@ import party.hc.zrnews.UrlReadActivity;
 import party.hc.zrnews.R;
 import party.hc.zrnews.bean.VideoBean;
 import party.hc.zrnews.conn.GetVideos;
+import party.hc.zrnews.mainFragments.FollowsPageFragment.FollowsGeneralFragment;
 import party.hc.zrnews.tools.MArrayList;
 import party.hc.zrnews.tools.SerializeUtils;
 
@@ -79,7 +80,14 @@ public class VideosGeneralFragment  extends VideosBFragment{
                 new VideosGeneralFragment.LoadDataThread().start();
             }
         });
-
+        if (newsList.size()==0)
+            swipeRefreshLayout.post(new Runnable() {
+                @Override
+                public void run() {
+                    swipeRefreshLayout.setRefreshing(true);
+                    new VideosGeneralFragment.LoadDataThread().start();
+                }
+            });
         return view;
         //       return super.onCreateView(inflater, container, savedInstanceState);
 

@@ -80,6 +80,14 @@ public class NewsGeneralFragment extends NewsBFragment {
                 new LoadDataThread().start();
             }
         });
+        if (newsList.size()==0)
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+                new LoadDataThread().start();
+            }
+        });
 
         return view;
         //       return super.onCreateView(inflater, container, savedInstanceState);
