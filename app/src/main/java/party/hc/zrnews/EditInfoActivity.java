@@ -161,8 +161,8 @@ public class EditInfoActivity extends AppCompatActivity {
                         month=i1;
                         day=i2;
 
-                        birthdata=i+"-"+(++i1)+"-"+i2;
-                        birthday.setText(i+"-"+(++i1)+"-"+i2);
+                        birthdata=i+"-"+(+i1)+"-"+i2;
+                        birthday.setText(i+"-"+(+i1)+"-"+i2);
                     }
                 };
                 DatePickerDialog dialog=new DatePickerDialog(EditInfoActivity.this, R.style.MyDatePickerDialogTheme,listener,year,month,day);
