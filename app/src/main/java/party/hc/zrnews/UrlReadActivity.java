@@ -202,11 +202,11 @@ public class UrlReadActivity extends AppCompatActivity  {
         ImageButton imageButton=(ImageButton) findViewById(R.id.add_to_C);
         if(is_in_shoucang()){
 
-            imageButton.setImageResource(R.drawable.star_fill);
+            imageButton.setImageResource(R.drawable.star2_fill);
 
         }
         else {
-            imageButton.setImageResource(R.drawable.star);
+            imageButton.setImageResource(R.drawable.star2);
         }
     }
     void Init_pinglunqu(){

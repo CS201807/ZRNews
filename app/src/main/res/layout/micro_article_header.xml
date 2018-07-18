@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableTop="@drawable/selector_add_to_love"
-
+            android:layout_marginRight="10dp"
             android:text="关注" />
     </LinearLayout>
 
