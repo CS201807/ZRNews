@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -132,10 +133,20 @@ public class FollowsGeneralFragment extends FollowsBFragment {
     class LoadDataThread extends Thread {
         @Override
         public void run() {
+            int n= newsList.size();
             initData();
+            if(newsList.size()==n){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                handler.sendEmptyMessage(0x103);//通过handler发送一个更新数据的标记
+                return;
+            }
 
             try {
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -179,6 +190,10 @@ public class FollowsGeneralFragment extends FollowsBFragment {
                         myAdapter.notifyDataSetChanged();
                         swipeRefreshLayout.setRefreshing(false);//设置不刷新
                     }
+                    break;
+                case 0x103:
+                    Toast.makeText(getContext(),"网络出问题了！没有获取到数据。",Toast.LENGTH_SHORT).show();
+                    swipeRefreshLayout.setRefreshing(false);//设置不刷新
                     break;
             }
         }

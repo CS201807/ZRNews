@@ -17,7 +17,7 @@ public class GetVideos {
     private static String path = "http://115.159.205.152:8080/WebNews/DoVideo";
 
     public static void getVideos(List<VideoBean> videoBeanList) throws JSONException {
-
+        try {
         String str = HttpUtil.sendHttpRequset(path);
         //获得返回数据
         JSONObject json = new JSONObject(str);
@@ -30,6 +30,11 @@ public class GetVideos {
             videoBean.setUrl(temp.optString("url"));
             videoBean.setCover(temp.optString("cover"));
             videoBeanList.add(videoBean);
+        }
+
+    } catch (Exception e){
+            e.printStackTrace();
+
         }
     }
 

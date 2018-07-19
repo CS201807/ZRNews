@@ -12,6 +12,8 @@ import party.hc.zrnews.bean.UserBean;
 public class Sign {
 
     public static String signIn(String account, String password, UserBean userBean) throws JSONException {
+        try {
+
 
         String data = "phone=" + account + "&" + "password=" + password;
         String path = "http://115.159.205.152:8080/WebNews/DoLogin";
@@ -31,10 +33,15 @@ public class Sign {
         } else {
             return json.getString("reason");
         }
+        } catch (Exception e){
+            e.printStackTrace();
+            return "网络出现问题了！";
+        }
     }
 
     public static String signUp(String phone, String username,String psw) throws JSONException {
-        String data = "phone=" + phone + "&" + "username=" + username + "&" + "password=" + psw + "&" + "sex=" + "" + "&" + "birthday=" + "" ;
+        try {
+        String data = "phone=" + phone + "&" + "username=" + username + "&" + "password=" + psw + "&" + "sex=" + "" + "&" + "birthday=" + "";
         String path = "http://115.159.205.152:8080/WebNews/SignUp";
 
         String str = HttpUtil.postHttpRequset(path, data);
@@ -45,9 +52,15 @@ public class Sign {
         } else {
             return json.getString("reason");
         }
+     }catch (Exception e){
+            e.printStackTrace();
+            return "网络出现问题了！";
+        }
     }
 
     public static boolean UpdateUserInfo(UserBean userBean,String username,String sex,String birthday)throws JSONException{
+        try {
+
 
          if (username.equals(""))
              username = userBean.getName();
@@ -74,10 +87,15 @@ public class Sign {
             return true;
         } else {
             return false;
+        }}catch (Exception e){
+            e.printStackTrace();
+            return false;
         }
     }
 
     public static boolean UpdatePassword(UserBean userBean,String oldPsw,String newPsw)throws JSONException{
+try {
+
 
         String data = "user_id=" + userBean.getId() +"&"+ "type=" + "password" +"&"+ "origin_password=" + oldPsw +"&"+ "new_password=" +newPsw;
         String path = "http://115.159.205.152:8080/WebNews/UpdateUserInfo";
@@ -89,6 +107,10 @@ public class Sign {
             return true;
         }else
             return false;
+    }catch (Exception e){
+    e.printStackTrace();
+    return false;
+}
     }
 }
 

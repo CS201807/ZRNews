@@ -19,6 +19,8 @@ public class GetNews {
     //传入参数newsbean类型
 
     public static void getNews(List<NewsBean> newsBeanList,String data) throws JSONException {
+    try {
+
 
         String path = "http://115.159.205.152:8080/WebNews/DoMoreArticle";
 
@@ -54,6 +56,11 @@ public class GetNews {
             newsBeanList.add(newsBean);
 
         }
+    }
+    catch (Exception e){
+        e.printStackTrace();
+
+    }
     }
 }
 

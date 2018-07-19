@@ -19,27 +19,30 @@ import party.hc.zrnews.bean.DetailBean;
 public class GetDetails {
 
     public static void getDetails(String string, DetailBean detailBean)  throws JSONException{
-        String data = "article_id=" + string;
-        String path = "http://115.159.205.152:8080/WebNews/queryCommentContent";
-        String str = HttpUtil.postHttpRequset(path,data);//地址，新闻id
+        try {
+            String data = "article_id=" + string;
+            String path = "http://115.159.205.152:8080/WebNews/queryCommentContent";
+            String str = HttpUtil.postHttpRequset(path, data);//地址，新闻id
 
-        JSONObject json = new JSONObject(str);
-        JSONArray array = json.getJSONArray("data");
-        List<CommentBean> commentBeanList = new ArrayList<>();
+            JSONObject json = new JSONObject(str);
+            JSONArray array = json.getJSONArray("data");
+            List<CommentBean> commentBeanList = new ArrayList<>();
 
-        for (int i = 0; i < array.length(); i++) {
-            JSONObject temp = array.getJSONObject(i);
-            CommentBean cb = new CommentBean();
-            cb.setUserId(temp.optString("userid"));
-            cb.setUserName(temp.optString("username"));
-            cb.setAvatar(temp.optString("avatar"));
-            cb.setDate(temp.optString("comment_date"));
-            cb.setComment(temp.optString("comment_content"));
-
-            commentBeanList.add(cb);
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject temp = array.getJSONObject(i);
+                CommentBean cb = new CommentBean();
+                cb.setUserId(temp.optString("userid"));
+                cb.setUserName(temp.optString("username"));
+                cb.setAvatar(temp.optString("avatar"));
+                cb.setDate(temp.optString("comment_date"));
+                cb.setComment(temp.optString("comment_content"));
+                commentBeanList.add(cb);
+            }
+            detailBean.setNewsId(string);
+            detailBean.setCbl(commentBeanList);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        detailBean.setNewsId(string);
-        detailBean.setCbl(commentBeanList);
     }
 
     public static boolean getLikeNum(DetailBean detailBean) throws JSONException {
